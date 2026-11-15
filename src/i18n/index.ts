@@ -40,7 +40,8 @@ export interface Names {
   event: (e: PracticeEvent) => string;
 }
 
-export function makeNames(t: TFn, staff: StaffMember[]): Names {
+/** demo = the invented DentalFirst team with its fixed labels; imported data uses role + letter. */
+export function makeNames(t: TFn, staff: StaffMember[], demo = true): Names {
   return {
     staff: (id) => {
       const s = staff.find((x) => x.id === id);
@@ -48,7 +49,7 @@ export function makeNames(t: TFn, staff: StaffMember[]): Names {
       const special = `staff.demo.${s.label}`;
       // demo team: fixed anonymised labels; imported data: role + letter
       const fixed = t(special);
-      if (fixed !== special && staff.length === 5 && s.label.length === 1 && 'ABCDE'.includes(s.label)) return fixed;
+      if (demo && fixed !== special) return fixed;
       return t(`staff.role.${s.role}`, { label: s.label });
     },
     treatment: (key) => t(`treatment.${key}`),
@@ -66,8 +67,9 @@ export function useT(): { t: TFn; f: Fmt; lang: Lang; names: Names } {
   const { t } = useTranslation();
   const lang = useStore((s) => s.lang);
   const staff = useStore((s) => s.base.staff);
+  const demo = useStore((s) => s.base.mode === 'demo');
   const tf = t as unknown as TFn;
-  return { t: tf, f: fmtFor(lang), lang, names: makeNames(tf, staff) };
+  return { t: tf, f: fmtFor(lang), lang, names: makeNames(tf, staff, demo) };
 }
 
 /** Non-React access (AI fallback, tests). */

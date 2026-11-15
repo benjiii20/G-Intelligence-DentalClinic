@@ -77,7 +77,7 @@ function getSession(): string {
 
 export function toolContext(data: Dataset, month: string): ToolContext {
   // tool results are for the model, so labels are always English
-  const names = makeNames(translator('en'), data.staff);
+  const names = makeNames(translator('en'), data.staff, data.mode === 'demo');
   return { month, staffName: names.staff, eventText: names.event };
 }
 

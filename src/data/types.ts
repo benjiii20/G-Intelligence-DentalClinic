@@ -62,7 +62,8 @@ export interface StaffMember {
 export interface Patient {
   id: string; // pseudonymised, e.g. '#4812'
   firstVisit: string | null;
-  payer: Payer;
+  /** null when the export does not say */
+  payer: Payer | null;
   channel: Channel | null;
   district: District | null;
   birthYearRange: string | null; // e.g. '1970-1979'

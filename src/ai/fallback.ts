@@ -100,7 +100,7 @@ export function periodFromQuestion(question: string, month: string, data: Datase
 export function renderFallback(key: FallbackKey, data: Dataset, month: string, lang: Lang, question = ''): FallbackAnswer {
   const t: TFn = translator(lang);
   const f: Fmt = fmtFor(lang);
-  const names = makeNames(t, data.staff);
+  const names = makeNames(t, data.staff, data.mode === 'demo');
   const ctx = toolContext(data, month);
   const metricCalls: ToolName[] = [];
   const toolNumbers: number[] = [];

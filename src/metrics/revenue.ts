@@ -88,7 +88,7 @@ export function payerMix(data: Dataset, f: Filter): MetricResult<Record<Payer, n
   const appts = completedIn(data, f);
   for (const a of appts) {
     const p = ix.patient.get(a.patientId);
-    if (p) out[p.payer] += a.billed;
+    if (p?.payer) out[p.payer] += a.billed;
   }
   return ok(out, 'eur', appts.length, PVS);
 }

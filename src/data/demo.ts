@@ -577,7 +577,7 @@ export function generateDemo(seed = 20261031): Dataset {
       let billed = 0;
       if (completed) {
         const noise = t === 'implants_surgery' ? rng.range(0.8, 1.22) : rng.range(0.82, 1.2);
-        billed = Math.round(BASE_PRICE[t] * PAYER_FACTOR[t][st.p.payer] * priceFactor(t, slot.day) * noise);
+        billed = Math.round(BASE_PRICE[t] * PAYER_FACTOR[t][st.p.payer ?? 'GKV'] * priceFactor(t, slot.day) * noise);
       }
       const a: Appointment = {
         id: `ap${++apptSeq}`,

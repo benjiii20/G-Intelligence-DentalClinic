@@ -36,6 +36,11 @@ export const useChat = create<ChatState>((set) => ({
   setAi: (aiAvailable) => set({ aiAvailable }),
 }));
 
+// answers belong to the data they were given for: a new dataset starts a new chat
+useStore.subscribe((s, prev) => {
+  if (s.base !== prev.base) useChat.getState().clear();
+});
+
 let nextId = 1;
 let controller: AbortController | null = null;
 

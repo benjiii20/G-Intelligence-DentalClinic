@@ -142,15 +142,19 @@ export const useStore = create<State>((set, get, api) => {
     write(LS_EVENTS, userEvents);
     set({ userEvents });
   },
-  loadRealData: (data) => set({ base: data, month: data.lastMonth, selection: null, page: 'overview' }),
+  loadRealData: (data) => {
+    const now = new Date();
+    const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    set({ base: data, month: data.lastMonth, selection: null, lastSync: Object.fromEntries(SOURCE_KEYS.map((k) => [k, stamp])) as Record<SourceKey, string> });
+  },
   clearData: () => {
     try {
-      localStorage.removeItem(LS_EVENTS);
-      localStorage.removeItem(LS_SOURCES);
+      // everything this app stored, except the language choice
+      for (const key of Object.keys(localStorage)) if (key.startsWith('gi.') && key !== LS_LANG) localStorage.removeItem(key);
     } catch {
       /* ignore */
     }
-    set({ base: demo, month: demo.lastMonth, selection: null, userEvents: [], connected: allOn() });
+    set({ base: demo, month: demo.lastMonth, selection: null, userEvents: [], connected: allOn(), lastSync: Object.fromEntries(SOURCE_KEYS.map((k) => [k, SYNC_DEFAULT])) as Record<SourceKey, string> });
   },
 };
 });

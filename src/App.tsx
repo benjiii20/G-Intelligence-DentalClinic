@@ -9,11 +9,16 @@ import { ChairsData, MarketingData, PatientsData } from './pages/DataPages2';
 import { OverviewInsights, PlansInsights, RevenueInsights } from './pages/InsightsPages1';
 import { ChairsInsights, MarketingInsights, PatientsInsights } from './pages/InsightsPages2';
 import { SourcesPage } from './pages/Sources';
+import { Upload } from './pages/Upload';
 import { useStore, type PageKey, type View } from './state/store';
 
 function Soon() {
   const { t } = useT();
   return <Card>{t('common.pageSoon')}</Card>;
+}
+
+function SourcesWithUpload() {
+  return <SourcesPage upload={<Upload />} />;
 }
 
 type PageMap = Partial<Record<PageKey, Partial<Record<View, ComponentType>>>>;
@@ -25,7 +30,7 @@ const PAGE_COMPONENTS: PageMap = {
   patients: { data: PatientsData, insights: PatientsInsights },
   chairs: { data: ChairsData, insights: ChairsInsights },
   ask: { data: AskPage, insights: AskPage },
-  sources: { data: SourcesPage, insights: SourcesPage },
+  sources: { data: SourcesWithUpload, insights: SourcesWithUpload },
 };
 
 export default function App() {
