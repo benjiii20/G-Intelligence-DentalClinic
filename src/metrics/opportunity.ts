@@ -20,6 +20,10 @@ export const ASSUMPTIONS = {
   recallReturnRate: 0.25,
   /** share of missed appointments that a reminder or waiting list could save */
   missedRecoverRate: 0.5,
+  /** open plans under 3 months built up over 3 months: spread the amount over 3 months */
+  planSpreadMonths: 3,
+  /** overdue patients built up over a recall cycle: spread the amount over 6 months */
+  recallSpreadMonths: 6,
 };
 
 export interface OpportunityItem {
@@ -53,14 +57,14 @@ export function moneyOnTable(data: Dataset, f: Filter): Opportunities {
     {
       key: 'plans',
       full: open ? open.under3 : null,
-      cautious: open ? open.under3 * ASSUMPTIONS.planFollowUpRate : null,
+      cautious: open ? (open.under3 * ASSUMPTIONS.planFollowUpRate) / ASSUMPTIONS.planSpreadMonths : null,
       count: open ? open.count : null,
     },
     { key: 'requests', full: requestsFull, cautious: requestsFull, count: speed?.missedNewPatients ?? null },
     {
       key: 'overdue',
       full: overdueFull,
-      cautious: overdueFull !== null ? overdueFull * ASSUMPTIONS.recallReturnRate : null,
+      cautious: overdueFull !== null ? (overdueFull * ASSUMPTIONS.recallReturnRate) / ASSUMPTIONS.recallSpreadMonths : null,
       count: overdue ? overdue.length : null,
     },
     {

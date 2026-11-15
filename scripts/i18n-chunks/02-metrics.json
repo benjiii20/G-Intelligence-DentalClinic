@@ -40,7 +40,7 @@
 "m.instalments.label": ["Annahme mit Ratenzahlung", "Acceptance with instalments"],
 "m.instalments.help": ["Anteil angenommener Pläne mit und ohne Ratenzahlungs-Angebot. Es zählen nur Pläne, bei denen das Angebot erfasst ist.", "Share of accepted plans with and without an instalment offer. Only plans where the offer is recorded are counted."],
 "m.overdue.label": ["Überfällig zur Kontrolle", "Overdue for check-up"],
-"m.overdue.help": ["Patienten, deren Recall-Termin mehr als 30 Tage zurückliegt und die seither nicht zur Kontrolle oder Zahnreinigung da waren.", "Patients more than 30 days past their recall date who have not been in for a check-up or cleaning since."],
+"m.overdue.help": ["Patienten, deren Recall-Termin mehr als 30 Tage zurückliegt und die seither nicht in der Praxis waren.", "Patients more than 30 days past their recall date who have not been in since."],
 "m.nextBooked.label": ["Nächster Termin gebucht", "Next appointment booked"],
 "m.nextBooked.help": ["Anteil der erledigten Termine, nach denen der Patient mit einem neuen Termin nach Hause ging.", "Share of completed appointments after which the patient left with a new appointment."],
 "m.missed.label": ["Terminausfälle", "Missed appointments"],

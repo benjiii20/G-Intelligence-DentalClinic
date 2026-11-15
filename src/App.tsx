@@ -4,6 +4,8 @@ import { Card } from './components/ui';
 import { useT } from './i18n';
 import { OverviewData, PlansData, RevenueData } from './pages/DataPages1';
 import { ChairsData, MarketingData, PatientsData } from './pages/DataPages2';
+import { OverviewInsights, PlansInsights, RevenueInsights } from './pages/InsightsPages1';
+import { ChairsInsights, MarketingInsights, PatientsInsights } from './pages/InsightsPages2';
 import { useStore, type PageKey, type View } from './state/store';
 
 function Soon() {
@@ -13,12 +15,12 @@ function Soon() {
 
 type PageMap = Partial<Record<PageKey, Partial<Record<View, ComponentType>>>>;
 const PAGE_COMPONENTS: PageMap = {
-  overview: { data: OverviewData },
-  revenue: { data: RevenueData },
-  plans: { data: PlansData },
-  marketing: { data: MarketingData },
-  patients: { data: PatientsData },
-  chairs: { data: ChairsData },
+  overview: { data: OverviewData, insights: OverviewInsights },
+  revenue: { data: RevenueData, insights: RevenueInsights },
+  plans: { data: PlansData, insights: PlansInsights },
+  marketing: { data: MarketingData, insights: MarketingInsights },
+  patients: { data: PatientsData, insights: PatientsInsights },
+  chairs: { data: ChairsData, insights: ChairsInsights },
 };
 
 export default function App() {

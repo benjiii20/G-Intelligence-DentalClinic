@@ -37,7 +37,7 @@ function recallsByPatient(data: Dataset): Map<string, Recall[]> {
 
 /**
  * Overdue for a check-up at the end of the period: more than 30 days past the recall date,
- * and no check-up or cleaning since. (Exports contain no future bookings, so "no future
+ * and no visit of any kind since (from 60 days before the recall date). (Exports contain no future bookings, so "no future
  * appointment" is read from the recall list.)
  */
 export function overduePatients(data: Dataset, f: Filter): MetricResult<OverduePatient[]> {
@@ -57,7 +57,7 @@ export function overduePatients(data: Dataset, f: Filter): MetricResult<OverdueP
     const visits = (ix.byPatient.get(patientId) ?? []).filter((a) => a.at.slice(0, 10) <= asOf);
     const windowStart = addDays(recall.due, -60);
     const cameBack = visits.some(
-      (a) => (a.treatment === 'prevention' || a.treatment === 'checkups_cmd') && a.at.slice(0, 10) >= windowStart && (!recall!.createdAt || a.at.slice(0, 10) > recall!.createdAt),
+      (a) => a.at.slice(0, 10) >= windowStart && (!recall!.createdAt || a.at.slice(0, 10) > recall!.createdAt),
     );
     if (cameBack) continue;
     const lastAny: Appointment | undefined = visits[visits.length - 1];

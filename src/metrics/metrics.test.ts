@@ -71,7 +71,7 @@ function tiny(overrides: Partial<Dataset> = {}): Dataset {
     plans,
     recalls: [
       { patientId: '#1', due: '2025-12-01', createdAt: '2025-06-01' },
-      { patientId: '#3', due: '2026-02-20', createdAt: '2026-01-12' },
+      { patientId: '#3', due: '2026-02-20', createdAt: '2026-02-11' },
     ],
     capacity: [1, 2, 3, 4, 5].flatMap((weekday) => [
       { staffId: 'A', weekday, slots: 10 },
@@ -263,7 +263,7 @@ describe('request response time', () => {
 
 describe('recall, capacity and marketing', () => {
   const d = tiny();
-  it('overdue: more than 30 days past recall and no check-up since', () => {
+  it('overdue: more than 30 days past recall and no visit since', () => {
     // #1 was due 1 Dec 2025 but came for check-ups in January -> not overdue. #3 due 20 Feb: not yet 30 days.
     expect(overduePatients(d, FEB).value!.length).toBe(0);
     const marchEnd = monthFilter('2026-03');

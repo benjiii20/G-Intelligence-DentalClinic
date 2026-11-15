@@ -44,6 +44,8 @@ interface State {
   month: string;
   selection: Selection | null;
   weeklyOpen: boolean;
+  /** a question handed to the Ask page (from a chip on another page) */
+  askDraft: string | null;
   /** demo data or imported real data (memory only, never persisted) */
   base: Dataset;
   /** demo mode: which sources are "connected" */
@@ -59,6 +61,8 @@ interface State {
   select: (selection: Selection | null) => void;
   toggleSelect: (selection: Selection) => void;
   setWeeklyOpen: (open: boolean) => void;
+  askAbout: (question: string) => void;
+  clearAskDraft: () => void;
   setConnected: (key: SourceKey, on: boolean) => void;
   syncSource: (key: SourceKey) => void;
   addEvent: (event: PracticeEvent) => void;
@@ -70,13 +74,24 @@ interface State {
 const demo = getDemoData();
 const SYNC_DEFAULT = '2026-11-01T03:10';
 
-export const useStore = create<State>((set, get) => ({
+/**
+ * Server rendering (tests, scripts) reads the store's initial state. Calling this makes it
+ * read the live state instead, so a page set with setState is the page that renders.
+ */
+export let renderLiveStateOnServer: () => void = () => {};
+
+export const useStore = create<State>((set, get, api) => {
+  renderLiveStateOnServer = () => {
+    api.getInitialState = api.getState;
+  };
+  return {
   lang: read<Lang>(LS_LANG, 'de') === 'en' ? 'en' : 'de',
   view: 'insights',
   page: 'overview',
   month: demo.lastMonth,
   selection: null,
   weeklyOpen: false,
+  askDraft: null,
   base: demo,
   connected: { ...allOn(), ...read<Partial<Record<SourceKey, boolean>>>(LS_SOURCES, {}) },
   lastSync: Object.fromEntries(SOURCE_KEYS.map((k) => [k, SYNC_DEFAULT])) as Record<SourceKey, string>,
@@ -102,6 +117,11 @@ export const useStore = create<State>((set, get) => ({
     set({ selection: cur && cur.kind === selection.kind && cur.id === selection.id ? null : selection });
   },
   setWeeklyOpen: (weeklyOpen) => set({ weeklyOpen }),
+  askAbout: (question) => {
+    set({ askDraft: question, weeklyOpen: false });
+    get().go('ask');
+  },
+  clearAskDraft: () => set({ askDraft: null }),
   setConnected: (key, on) => {
     const connected = { ...get().connected, [key]: on };
     write(LS_SOURCES, connected);
@@ -132,7 +152,8 @@ export const useStore = create<State>((set, get) => ({
     }
     set({ base: demo, month: demo.lastMonth, selection: null, userEvents: [], connected: allOn() });
   },
-}));
+};
+});
 
 let memo: { base: Dataset; connected: Record<SourceKey, boolean>; userEvents: PracticeEvent[]; out: Dataset } | null = null;
 

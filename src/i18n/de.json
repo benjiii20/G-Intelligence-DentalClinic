@@ -191,7 +191,6 @@
     "goTo": "Zur Seite „{{page}}“",
     "linkNotProof": "Das ist ein Zusammenhang, kein Beweis.",
     "worthChecking": "Prüfenswert",
-    "days": "{{n}} Tage",
     "clickRow": "Zeile anklicken für Details.",
     "clickBar": "Balken anklicken, um den Monat zu wählen.",
     "patient": "Patient",
@@ -204,7 +203,10 @@
     "showMore": "Mehr anzeigen",
     "showLess": "Weniger anzeigen",
     "sortBy": "Sortieren nach",
-    "rowsShown": "{{shown}} von {{total}} angezeigt"
+    "rowsShown": "{{shown}} von {{total}} angezeigt",
+    "events": "Ereignisse im Zeitraum",
+    "days_one": "{{n}} Tag",
+    "days_other": "{{n}} Tage"
   },
   "m": {
     "revenue": {
@@ -273,7 +275,7 @@
     },
     "overdue": {
       "label": "Überfällig zur Kontrolle",
-      "help": "Patienten, deren Recall-Termin mehr als 30 Tage zurückliegt und die seither nicht zur Kontrolle oder Zahnreinigung da waren."
+      "help": "Patienten, deren Recall-Termin mehr als 30 Tage zurückliegt und die seither nicht in der Praxis waren."
     },
     "nextBooked": {
       "label": "Nächster Termin gebucht",
@@ -499,6 +501,333 @@
       "monthly": "Behandlungszeit pro Monat",
       "team": "Team im {{month}}",
       "weekdays": "Wochentage im {{month}}"
+    }
+  },
+  "story": {
+    "headline": {
+      "down": "Im {{month}} lag der Umsatz {{amount}} unter dem Vormonat. Der größte Teil entfällt auf {{treatment}}.",
+      "up": "Im {{month}} lag der Umsatz {{amount}} über dem Vormonat. Den größten Anteil daran hat {{treatment}}.",
+      "flat": "Im {{month}} lag der Umsatz fast genau auf dem Niveau des Vormonats.",
+      "first": "Im {{month}} lag der Umsatz bei {{revenue}}."
+    },
+    "revenue": "Der Umsatz lag bei {{revenue}}, nach {{previous}} im {{prevMonth}}.",
+    "sessions": "{{treatment}}: {{sessions}} Sitzungen statt {{previous}}.",
+    "event": "Im gleichen Zeitraum: {{event}}.",
+    "acceptanceDown": "Die Annahmequote der Behandlungspläne fiel von {{previous}} auf {{current}}.",
+    "acceptanceUp": "Die Annahmequote der Behandlungspläne stieg von {{previous}} auf {{current}}.",
+    "requestsRecord": "{{requests}} Online-Anfragen sind der höchste Wert bisher. Nur {{share}} wurden in 2 Stunden beantwortet.",
+    "requests": "Es kamen {{requests}} Online-Anfragen. {{share}} wurden in 2 Stunden beantwortet.",
+    "key": {
+      "change": "Größte Einzelveränderung: {{treatment}}",
+      "open": "Offene geplante Behandlung",
+      "fast": "Anfragen in 2 Stunden beantwortet"
+    },
+    "label": "Das Wichtigste im {{month}}"
+  },
+  "bridge": {
+    "title": "Warum hat sich der Umsatz verändert?",
+    "help": "Die Veränderung zum Vormonat ist in drei Teile zerlegt. Die drei Teile ergeben zusammen genau die Differenz.",
+    "count": {
+      "label": "Zahl der Termine",
+      "sub": "{{current}} Termine statt {{previous}}, gerechnet mit dem Umsatz pro Termin des Vormonats"
+    },
+    "mix": {
+      "label": "Art der Behandlung",
+      "sub": "Mehr oder weniger teure Behandlungen als im Vormonat, zu den Preisen des Vormonats"
+    },
+    "price": {
+      "label": "Preise innerhalb der Behandlungen",
+      "sub": "Der Rest: höherer oder niedrigerer Betrag je Sitzung bei gleicher Behandlung"
+    },
+    "sum": "Zusammen: {{change}}. Das ist genau die Differenz zwischen {{previous}} und {{current}}.",
+    "noPrev": "Für den ersten Monat gibt es keinen Vormonat zum Vergleich."
+  },
+  "factors": {
+    "title": "Umsatz = Patienten × Termine pro Patient × Umsatz pro Termin",
+    "help": "Jeder der drei Faktoren hat einen Anteil an der Veränderung. Die drei Anteile ergeben zusammen genau die Differenz.",
+    "patients": "Behandelte Patienten",
+    "visits": "Termine pro Patient",
+    "revenue": "Umsatz pro Termin",
+    "fromTo": "{{previous}} → {{current}}"
+  },
+  "money": {
+    "title": "Wo bleibt Geld liegen?",
+    "help": "Vorsichtige Schätzung, was sich pro Monat zurückholen ließe. Die Annahmen stehen in jeder Karte.",
+    "plans": {
+      "title": "Offene Behandlungspläne",
+      "text": "{{full}} sind seit weniger als 3 Monaten offen. Gerechnet ist, dass {{share}} davon nach einer Nachfrage gebucht werden, verteilt auf {{months}} Monate."
+    },
+    "requests": {
+      "title": "Zu spät beantwortete Anfragen",
+      "text": "Etwa {{count}} Neupatienten gingen durch späte Antworten verloren. Ein Neupatient bringt in 6 Monaten rund {{value}}."
+    },
+    "overdue": {
+      "title": "Überfällige Kontrollen",
+      "text": "{{count}} Patienten sind überfällig. Gerechnet ist, dass {{share}} nach einer Erinnerung kommen, verteilt auf {{months}} Monate."
+    },
+    "missed": {
+      "title": "Terminausfälle",
+      "text": "{{count}} Termine fielen aus, Wert {{full}}. Gerechnet ist, dass sich {{share}} davon vermeiden lassen."
+    },
+    "total": "Zusammen etwa {{total}} pro Monat. Das ist eine vorsichtige Schätzung.",
+    "perMonth": "pro Monat, vorsichtig geschätzt"
+  },
+  "top": {
+    "title": "Was hat die Zahlen am stärksten bewegt?",
+    "note": "Die Punkte überschneiden sich. Sie lassen sich nicht addieren.",
+    "kind": {
+      "treatment": "Behandlung",
+      "staff": "Team",
+      "patientType": "Patienten"
+    },
+    "new": "Neupatienten",
+    "existing": "Bestandspatienten",
+    "fromTo": "{{previous}} → {{current}}"
+  },
+  "chips": {
+    "title": "Fragen Sie nach",
+    "q1": "Warum ist der Umsatz gesunken?",
+    "q2": "Wie viel geplante Behandlung ist noch nicht gebucht?",
+    "q3": "Wie schnell beantworten wir Online-Anfragen?",
+    "q4": "Wie viele Patienten sind für die Kontrolle überfällig?",
+    "q5": "Was kosten uns Terminausfälle?",
+    "q6": "Hilft das Angebot der Ratenzahlung?",
+    "q7": "Woher kommen unsere Neupatienten?",
+    "q8": "Welche Instagram-Beiträge bringen Patienten?",
+    "q9": "Worauf sollten wir uns diesen Monat konzentrieren?",
+    "q10": "Was ist unser Gewinn?"
+  },
+  "rev": {
+    "answer": {
+      "down": "Der Umsatz lag im {{month}} bei {{revenue}}. Das sind {{amount}} weniger als im {{prevMonth}}.",
+      "up": "Der Umsatz lag im {{month}} bei {{revenue}}. Das sind {{amount}} mehr als im {{prevMonth}}.",
+      "first": "Der Umsatz lag im {{month}} bei {{revenue}}.",
+      "sub": "Der größte Einzelposten: {{treatment}} mit {{change}}."
+    },
+    "which": {
+      "title": "Welche Behandlungen haben das bewirkt?",
+      "sub": "Sitzungen {{previous}} → {{current}}: {{countEffect}} · Wirkung des Betrags je Sitzung: {{priceEffect}}"
+    },
+    "detail": {
+      "trend": "Verlauf über 12 Monate",
+      "who": "Wer behandelt?",
+      "whoRow": "{{share}} der Sitzungen",
+      "notes": "Was im gleichen Zeitraum auffällt",
+      "absence": "{{staff}} war {{days}} Arbeitstage abwesend. {{staff}} macht {{share}} dieser Behandlungen.",
+      "acceptance": "Annahmequote der Pläne für diese Behandlung: {{current}} nach {{previous}} im Vormonat.",
+      "acceptanceCheck": "Weniger angenommene Pläne heute bedeuten oft weniger Sitzungen in den nächsten Wochen.",
+      "event": "{{event}} ({{from}} bis {{to}})",
+      "none": "In den Daten fällt in diesem Zeitraum nichts Besonderes auf.",
+      "sessions": "Sitzungen",
+      "avg": "Ø Betrag je Sitzung"
+    },
+    "unusual": {
+      "title": "Ist dieser Monat ungewöhnlich?",
+      "avg": "Durchschnitt der letzten 12 Monate",
+      "lastYear": "Gleicher Monat im Vorjahr",
+      "vsAvg": "{{month}} gegenüber dem Durchschnitt",
+      "vsLastYear": "{{month}} gegenüber dem Vorjahr",
+      "noLastYear": "Für den Vorjahresmonat liegen noch keine Daten vor.",
+      "within": "Der Monat liegt im üblichen Bereich der letzten 12 Monate.",
+      "low": "Der Monat gehört zu den schwächsten der letzten 12 Monate.",
+      "high": "Der Monat gehört zu den stärksten der letzten 12 Monate.",
+      "hint": "Behandlung links anklicken: Verlauf, Behandler und Auffälligkeiten."
+    },
+    "payer": {
+      "title": "Wer zahlt – und was bleibt im Haus?",
+      "lab": "Davon im Eigenlabor gefertigt",
+      "labText": "{{amount}} des Umsatzes stammen aus dem eigenen Labor. Das sind {{share}} vom Umsatz."
+    }
+  },
+  "plans": {
+    "answer": "Im {{month}} wurden {{proposed}} Behandlung geplant. Davon sind {{acceptance}} gebucht.",
+    "answerSub": "Insgesamt sind {{open}} geplante Behandlung offen, davon {{under3}} seit weniger als 3 Monaten.",
+    "answerChange": "Im {{prevMonth}} lag die Annahmequote bei {{previous}}.",
+    "bar": {
+      "title": "Was ist aus den Plänen der letzten 12 Monate geworden?",
+      "booked": "Gebucht",
+      "under3": "Offen, jünger als 3 Monate",
+      "over3": "Offen, älter als 3 Monate",
+      "closed": "Abgelehnt oder abgelaufen"
+    },
+    "onePoint": {
+      "label": "Wert von +1 Punkt Annahmequote",
+      "text": "Ein Punkt mehr Annahme bei den Plänen dieses Monats entspricht {{value}} gebuchter Behandlung."
+    },
+    "inst": {
+      "title": "Hilft das Angebot der Ratenzahlung?",
+      "with": "Angenommen mit Angebot",
+      "without": "Angenommen ohne Angebot",
+      "sample": "{{n}} Pläne",
+      "text": "Mit Angebot wurden Pläne um {{diff}} häufiger angenommen. Angeboten wurde es aber nur bei {{share}} der Pläne.",
+      "textNoDiff": "Mit und ohne Angebot wurden Pläne etwa gleich oft angenommen.",
+      "period": "Zeitraum: 6 Monate bis {{month}}. Es zählen nur Pläne, bei denen das Angebot erfasst ist.",
+      "check": "Ob es an der Ratenzahlung liegt, zeigen die Daten nicht. Einen Versuch ist es wert: bei jedem größeren Plan anbieten."
+    },
+    "dentist": {
+      "title": "Wo ist die Annahme gesunken?",
+      "row": "{{current}} nach {{previous}} im Vormonat · offen: {{open}}",
+      "rowFirst": "{{current}} · offen: {{open}}",
+      "absence": "Im gleichen Zeitraum: {{days}} Arbeitstage abwesend.",
+      "none": "Zu wenige Pläne für eine Aussage."
+    },
+    "follow": {
+      "title": "Nachfass-Liste für den Empfang",
+      "help": "Offene Pläne, jünger als 90 Tage. Sortiert nach Wert mal Chance, dass eine Nachfrage noch zur Buchung führt.",
+      "step": {
+        "offer_instalments": "Ratenzahlung anbieten",
+        "getting_old": "Freundlich nachfragen – der Plan wird alt",
+        "second_talk": "Zweites Gespräch mit dem Behandler anbieten",
+        "call_questions": "Anrufen und offene Fragen klären"
+      },
+      "empty": "Keine offenen Pläne unter 90 Tagen.",
+      "stepLabel": "Nächster Schritt"
+    },
+    "reasons": {
+      "title": "Warum lehnen Patienten ab?",
+      "text": "Bei {{notRecorded}} von {{total}} abgelehnten Plänen ist kein Grund erfasst.",
+      "hint": "Ein kurzes Auswahlfeld im Plan würde das ändern: Kosten, Bedenkzeit, Zweitmeinung, Sonstiges."
+    },
+    "reason": {
+      "cost": "Kosten",
+      "wants_to_think": "Bedenkzeit",
+      "second_opinion": "Zweitmeinung",
+      "other": "Sonstiges"
+    }
+  },
+  "mkt": {
+    "answer": {
+      "record": "{{requests}} Online-Anfragen im {{month}} sind der höchste Wert bisher. Aber nur {{share}} wurden in 2 Stunden beantwortet.",
+      "normal": "Im {{month}} kamen {{requests}} Online-Anfragen. {{share}} wurden in 2 Stunden beantwortet.",
+      "sub": "Schnell beantwortete Anfragen wurden {{factor}}-mal so oft zu Patienten wie spät beantwortete.",
+      "prev": "Im {{prevMonth}} waren es {{previous}}."
+    },
+    "speed": {
+      "title": "Wie schnell beantworten Sie Anfragen?",
+      "missedValue": "Wert in 6 Monaten: etwa {{value}}",
+      "weekend": "{{share}} der spät beantworteten Anfragen kamen am Freitagnachmittag oder am Wochenende. Sie warten bis Montag.",
+      "form": "Das Formular ist eine Anfrage, keine Buchung. Wer nicht bald eine Antwort bekommt, fragt oft woanders an."
+    },
+    "channels": {
+      "title": "Welcher Kanal bringt echte Patienten?",
+      "period": "Zeitraum: 6 Monate bis {{month}}.",
+      "fromTo": "{{requests}} Anfragen → {{patients}} Neupatienten",
+      "best": "Hier wird am häufigsten aus einer Anfrage ein Patient.",
+      "worst": "Viele Anfragen, aber am seltensten wird ein Patient daraus.",
+      "paid": "Kostet {{spend}} Werbung und bringt {{patients}} Neupatienten.",
+      "steady": "Bringt regelmäßig einige Patienten im Monat.",
+      "direct": "Viele dieser Patienten kommen ohne vorherige Anfrage direkt in die Praxis.",
+      "noRequests": "Anfragen dieses Kanals sind nicht verbunden.",
+      "noSource": "{{count}} Neupatienten ({{share}}) haben keine erfasste Quelle.",
+      "noSourceHint": "Eine Frage im Anamnesebogen schließt die Lücke: „Wie sind Sie auf uns aufmerksam geworden?“"
+    },
+    "funnel": {
+      "title": "{{channel}}: von der Anfrage zum Patienten",
+      "requests": "Anfragen",
+      "fast": "davon in 2 Stunden beantwortet",
+      "patients": "wurden Patienten",
+      "twice": "kamen ein zweites Mal",
+      "drop1": "Größter Verlust: Viele Anfragen warten länger als 2 Stunden auf eine Antwort.",
+      "drop2": "Größter Verlust: Aus den meisten Anfragen wird kein Termin.",
+      "drop3": "Größter Verlust: Viele neue Patienten kommen kein zweites Mal.",
+      "hint": "Kanal anklicken: Weg von der Anfrage zum Patienten.",
+      "empty": "Für diesen Kanal gibt es im Zeitraum keine Anfragen."
+    },
+    "districts": {
+      "title": "Wo wohnen Ihre Neupatienten?",
+      "above": "überdurchschnittlicher Wert",
+      "text": "Die meisten Neupatienten kommen aus {{first}} und {{second}}.",
+      "top": "Patienten aus {{district}} bringen am meisten: etwa {{value}} in den ersten 6 Monaten."
+    },
+    "ig": {
+      "title": "Bringt Instagram neue Patienten?",
+      "value": "Umsatz in 6 Monaten (geschätzt)",
+      "types": "Ergebnis nach Art des Beitrags",
+      "text": "„{{best}}“ bringt die meisten Anfragen und Patienten. „{{reach}}“ erreicht die meisten Menschen, bringt aber kaum Termine.",
+      "textSame": "„{{best}}“ bringt die meisten Anfragen und Patienten und erreicht auch die meisten Menschen.",
+      "trust": "Team-Beiträge schaffen Vertrauen, auch wenn sie selten direkt zu Terminen führen."
+    },
+    "ads": {
+      "title": "Lohnt sich Google Ads?",
+      "text": "Jeder Euro für Google Ads brachte geschätzt {{ret}} Umsatz in 6 Monaten zurück.",
+      "note": "Zum Kanal Google zählen auch Patienten aus der normalen Google-Suche. Der echte Wert der Anzeigen liegt also etwas niedriger."
+    }
+  },
+  "pat": {
+    "answer": "{{count}} Patienten sind für die Kontrolle überfällig. Kämen alle, wären das etwa {{value}}.",
+    "answerSub": "Im {{month}} waren {{seen}} Patienten in der Praxis, davon {{fresh}} neu.",
+    "value": {
+      "recall": "Ein Recall-Termin",
+      "onePoint": "+1 Punkt „nächster Termin gebucht“",
+      "onePointHelp": "Ein Punkt mehr bedeutet: von 100 Patienten geht einer mehr mit Termin nach Hause. Gerechnet mit den Terminen dieses Monats und dem Wert eines Recall-Termins.",
+      "lost": "Wenn ein Neupatient nicht wiederkommt",
+      "lostHelp": "Üblicher Umsatz eines Neupatienten in 6 Monaten minus der Umsatz des ersten Termins.",
+      "perMonth": "pro Monat"
+    },
+    "overdue": {
+      "title": "Wer ist überfällig – und was ist das wert?",
+      "byStaff": "{{count}} der {{total}} überfälligen Patienten waren zuletzt bei {{staff}}.",
+      "byStaffCheck": "Bei {{staff}} gehen auch weniger Patienten mit einem neuen Termin nach Hause ({{rate}}, Team: {{team}}).",
+      "row": "zuletzt vor {{days}} Tagen · bisher {{billed}} · bei {{staff}}",
+      "rowNoVisit": "Recall fällig seit {{days}} Tagen · letzter Termin vor Beginn der Daten",
+      "shown": "Beispiele: die {{shown}} Patienten mit dem höchsten bisherigen Umsatz."
+    },
+    "story": {
+      "title": "Patient {{id}}",
+      "text": "Kam bisher etwa alle {{interval}} Tage. Der letzte Termin liegt {{days}} Tage zurück.",
+      "textNoInterval": "Der letzte Termin liegt {{days}} Tage zurück.",
+      "due": "Der Recall war am {{date}} fällig.",
+      "worth": "Bisher abgerechnet: {{billed}} in {{visits}} Terminen.",
+      "noNext": "Beim letzten Termin wurde kein Folgetermin gebucht.",
+      "visits": "Letzte Termine",
+      "noVisits": "Keine Termine im Datenzeitraum."
+    },
+    "growth": {
+      "title": "Wächst der Patientenstamm?",
+      "new": "Neupatienten (3 Monate)",
+      "overdueChange": "Überfällige Patienten gegenüber vor 3 Monaten",
+      "seen": "Behandelte Patienten gegenüber vor 3 Monaten",
+      "textGrow": "Es kommen mehr neue Patienten, als überfällig werden.",
+      "textShrink": "Es werden mehr Patienten überfällig, als neue dazukommen.",
+      "hint": "Patient links anklicken: kurze Geschichte und letzte Termine."
+    }
+  },
+  "chairs": {
+    "answer": "Im {{month}} wurden {{used}} der Behandlungszeit genutzt.",
+    "answerSub": "Ausgefallene Termine entsprechen etwa {{missed}}. Nie gebuchte Zeit entspricht etwa {{never}}.",
+    "bar": {
+      "title": "Was wurde aus der buchbaren Zeit?",
+      "completed": "Erledigt",
+      "cancelled": "Abgesagt",
+      "noShow": "Nicht erschienen",
+      "never": "Nie gebucht",
+      "slots": "{{n}} Termine"
+    },
+    "tile": {
+      "missedValue": "Wert der Terminausfälle",
+      "perMissed": "Wert pro ausgefallenem Termin",
+      "neverValue": "Wert der nie gebuchten Zeit",
+      "neverHelp": "Nie gebuchte Termine mal Durchschnittswert einer Kontrolle oder Zahnreinigung. Eine vorsichtige Schätzung.",
+      "missedMostly": "Am häufigsten: {{first}} und {{second}}"
+    },
+    "reasons": "Bei {{notRecorded}} von {{total}} Ausfällen ist kein Grund erfasst.",
+    "team": {
+      "title": "Wer schickt Patienten mit einem nächsten Termin nach Hause?",
+      "below": "{{rate}} der Patienten gehen mit Termin. Das Team liegt bei {{team}}. Die Lücke entspricht etwa {{value}} im Monat.",
+      "above": "{{rate}} der Patienten gehen mit Termin. Das Team liegt bei {{team}}.",
+      "habit": "Das ist eine Buchungsgewohnheit, kein Maß für die Qualität der Behandlung."
+    },
+    "person": {
+      "trend": "Nächster Termin gebucht, 12 Monate",
+      "mix": "Behandlungen im {{month}}",
+      "appointments": "{{n}} Termine"
+    },
+    "room": {
+      "title": "Wann ist noch Platz?",
+      "text": "{{first}} und {{second}} sind am ruhigsten. Dort sind im Monat etwa {{free}} Termine frei.",
+      "match": "{{overdue}} Patienten sind für die Kontrolle überfällig. Für sie wäre an diesen Tagen Platz.",
+      "hint": "Teammitglied links anklicken: Verlauf und Behandlungen.",
+      "free": "{{n}} frei"
     }
   }
 }
