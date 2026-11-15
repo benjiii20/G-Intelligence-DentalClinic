@@ -1,0 +1,22 @@
+{
+  "hkp": {
+    "term": "HKP",
+    "text": "Heil- und Kostenplan: der Kostenvoranschlag für eine größere Behandlung. Der Patient nimmt ihn vor Beginn an oder lehnt ihn ab."
+  },
+  "recall": {
+    "term": "Recall",
+    "text": "Die Erinnerung an die nächste Kontrolle oder Zahnreinigung, meist alle 6 Monate."
+  },
+  "pzr": {
+    "term": "PZR",
+    "text": "Professionelle Zahnreinigung. Gesetzlich Versicherte zahlen sie meist selbst."
+  },
+  "gkv": {
+    "term": "GKV / PKV",
+    "text": "GKV = gesetzliche Krankenversicherung, PKV = private Krankenversicherung. Selbstzahler zahlen die Behandlung direkt."
+  },
+  "lab": {
+    "term": "Eigenlabor",
+    "text": "Das praxiseigene Dentallabor. Was dort gefertigt wird, bleibt als Umsatz in der Praxis."
+  }
+}

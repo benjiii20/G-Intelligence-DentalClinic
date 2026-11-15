@@ -1,0 +1,201 @@
+{
+  "app": {
+    "name": "G-Intelligence",
+    "practice": "DentalFirst · Berlin-Charlottenburg",
+    "promise": "Sie sehen genau, was sich geändert hat, wo und was es wert ist.",
+    "menu": "Menü",
+    "closeMenu": "Menü schließen"
+  },
+  "banner": {
+    "demo": "Vorschau für DentalFirst: So würde G-Intelligence mit Ihren echten Praxisdaten aussehen. Alle Zahlen sind erfundene Beispieldaten; Teammitglieder und Patienten sind anonymisiert.",
+    "real": "Ihre echten Daten – nur in diesem Browser verarbeitet, nichts wird hochgeladen.",
+    "clear": "Daten löschen",
+    "clearConfirm": "Alle importierten Daten aus diesem Browser löschen?"
+  },
+  "header": {
+    "view": {
+      "label": "Ansicht",
+      "data": "Daten",
+      "insights": "Erklärungen"
+    },
+    "lang": {
+      "label": "Sprache"
+    },
+    "month": {
+      "label": "Monat",
+      "prev": "Vorheriger Monat",
+      "next": "Nächster Monat"
+    },
+    "weekly": "Wochenbericht",
+    "synced": "Zuletzt abgeglichen: {{when}} · {{sources}}",
+    "syncedNone": "Keine Datenquelle verbunden",
+    "dataSuffix": "{{page}} · alle Zahlen"
+  },
+  "nav": {
+    "label": "Seiten",
+    "overview": {
+      "name": "Überblick",
+      "sub": "Was passiert ist und warum"
+    },
+    "revenue": {
+      "name": "Umsatz",
+      "sub": "Was sich geändert hat"
+    },
+    "plans": {
+      "name": "Behandlungspläne",
+      "sub": "Geplant, aber nicht gebucht"
+    },
+    "marketing": {
+      "name": "Marketing",
+      "sub": "Anfragen, Instagram, Google"
+    },
+    "patients": {
+      "name": "Patienten & Prophylaxe",
+      "sub": "Wer zur Kontrolle kommt"
+    },
+    "chairs": {
+      "name": "Behandlungszeit & Team",
+      "sub": "Genutzte und freie Zeit"
+    },
+    "ask": {
+      "name": "Fragen stellen",
+      "sub": "Antworten aus Ihren Zahlen"
+    },
+    "sources": {
+      "name": "Datenquellen",
+      "sub": "Verbinden und hochladen"
+    }
+  },
+  "question": {
+    "overview": "Was ist im {{month}} passiert – und warum?",
+    "revenue": "Warum hat sich der Umsatz verändert?",
+    "plans": "Wie viel geplante Behandlung wird nicht gebucht?",
+    "marketing": "Bringt Ihr Marketing neue Patienten?",
+    "patients": "Kommen die Patienten zur Kontrolle?",
+    "chairs": "Nutzen wir unsere Behandlungszeit?",
+    "ask": "Fragen stellen",
+    "sources": "Datenquellen"
+  },
+  "staff": {
+    "demo": {
+      "A": "Zahnarzt A",
+      "B": "Zahnarzt B",
+      "C": "Zahnärztin C",
+      "D": "Prophylaxe D",
+      "E": "Prophylaxe E"
+    },
+    "role": {
+      "dentist": "Behandler {{label}}",
+      "hygienist": "Prophylaxe {{label}}",
+      "assistant": "Assistenz {{label}}"
+    },
+    "roleName": {
+      "dentist": "Zahnarzt/Zahnärztin",
+      "hygienist": "Prophylaxe",
+      "assistant": "Assistenz"
+    },
+    "team": "Team"
+  },
+  "treatment": {
+    "implants_surgery": "Implantate & Chirurgie",
+    "crowns_lab": "Kronen, Brücken & Eigenlabor",
+    "aesthetics": "Ästhetik",
+    "endo_perio": "Wurzel- & Zahnfleischbehandlung",
+    "prevention": "Prophylaxe & Zahnreinigung",
+    "checkups_cmd": "Kontrolle, Füllungen & CMD"
+  },
+  "channel": {
+    "website": "Website-Anfrage",
+    "google": "Google",
+    "instagram": "Instagram",
+    "referral": "Empfehlung & Familie",
+    "reviews": "Bewertungen",
+    "intl_site": "Englische & russische Website",
+    "phone": "Telefon",
+    "none": "Keine Quelle erfasst"
+  },
+  "district": {
+    "charlottenburg": "Charlottenburg",
+    "westend": "Westend",
+    "wilmersdorf": "Wilmersdorf",
+    "grunewald": "Grunewald",
+    "spandau": "Spandau",
+    "schoeneberg": "Schöneberg",
+    "other": "Andere Bezirke",
+    "unknown": "Unbekannt"
+  },
+  "payer": {
+    "GKV": "Gesetzlich (GKV)",
+    "PKV": "Privat (PKV)",
+    "self": "Selbstzahler"
+  },
+  "postType": {
+    "before_after": "Vorher & Nachher",
+    "implant_lab": "Implantatfälle & Labor",
+    "team": "Team & Praxisleben",
+    "tips": "Tipps & Wissen",
+    "anxious": "Angstpatienten & Sedierung"
+  },
+  "sourceName": {
+    "pvs": "Praxissoftware",
+    "webform": "Website-Anfrageformular",
+    "inbox": "Empfangs-Postfach",
+    "instagram": "Instagram",
+    "google_ads": "Google Ads",
+    "gbp": "Google Unternehmensprofil",
+    "provenexpert": "ProvenExpert",
+    "phone": "Telefonanlage",
+    "lab": "Eigenlabor-Software",
+    "instalments": "Ratenzahlungs-Anbieter"
+  },
+  "eventType": {
+    "holiday": "Urlaub",
+    "staff_change": "Personalwechsel",
+    "campaign": "Kampagne",
+    "price_change": "Preisänderung",
+    "closure": "Praxis geschlossen",
+    "other": "Sonstiges"
+  },
+  "events": {
+    "demo": {
+      "closure": "Praxis über Weihnachten und Neujahr geschlossen",
+      "holidayA": "Zahnarzt A im Urlaub (5 Arbeitstage)",
+      "holidayB": "Zahnarzt B im Urlaub (10 Arbeitstage)",
+      "holidayC": "Zahnärztin C im Urlaub (5 Arbeitstage)",
+      "pricePzr": "Preis der Zahnreinigung um etwa 5 % angehoben",
+      "campaignIg": "Instagram-Reihe „Vorher & Nachher“",
+      "publicHoliday": "Feiertag"
+    }
+  },
+  "common": {
+    "notEnough": "Nicht genug Daten",
+    "notEnoughSource": "Dafür fehlt: {{source}}.",
+    "connect": "{{source}} verbinden",
+    "connectHint": "Verbinden Sie {{source}}, um diese Zahlen zu sehen.",
+    "tooFew": "Zu wenige Fälle für eine sichere Aussage.",
+    "fewCases": "wenige Fälle",
+    "vsPrev": "ggü. {{month}}",
+    "estimate": "geschätzt",
+    "about": "etwa",
+    "close": "Schließen",
+    "details": "Details",
+    "sources": "Quellen",
+    "total": "Gesamt",
+    "month": "Monat",
+    "yes": "Ja",
+    "no": "Nein",
+    "unknown": "Unbekannt",
+    "notRecorded": "nicht erfasst",
+    "help": "Erklärung: {{label}}",
+    "selected": "ausgewählt",
+    "goTo": "Zur Seite „{{page}}“",
+    "linkNotProof": "Das ist ein Zusammenhang, kein Beweis.",
+    "worthChecking": "Prüfenswert",
+    "days": "{{n}} Tage",
+    "clickRow": "Zeile anklicken für Details.",
+    "clickBar": "Balken anklicken, um den Monat zu wählen.",
+    "patient": "Patient",
+    "noData": "Keine Daten in diesem Monat.",
+    "pageSoon": "Diese Seite folgt im nächsten Schritt."
+  }
+}

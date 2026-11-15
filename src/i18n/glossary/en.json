@@ -1,0 +1,22 @@
+{
+  "hkp": {
+    "term": "HKP",
+    "text": "Treatment and cost plan (German: Heil- und Kostenplan): the cost estimate for larger treatment. The patient accepts or declines it before treatment starts."
+  },
+  "recall": {
+    "term": "Recall",
+    "text": "The reminder for the next check-up or cleaning, usually every 6 months."
+  },
+  "pzr": {
+    "term": "PZR",
+    "text": "Professional tooth cleaning. Patients with statutory insurance usually pay for it themselves."
+  },
+  "gkv": {
+    "term": "GKV / PKV",
+    "text": "GKV = statutory health insurance, PKV = private health insurance. Self-pay patients pay for treatment directly."
+  },
+  "lab": {
+    "term": "In-house lab",
+    "text": "The practice's own dental lab. Work made there stays in the practice as revenue."
+  }
+}

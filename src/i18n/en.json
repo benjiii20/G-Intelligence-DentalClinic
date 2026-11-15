@@ -1,0 +1,201 @@
+{
+  "app": {
+    "name": "G-Intelligence",
+    "practice": "DentalFirst · Berlin-Charlottenburg",
+    "promise": "It shows you exactly what changed, where and what it's worth.",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "banner": {
+    "demo": "Preview for DentalFirst: this is how G-Intelligence would look with your real practice data. All figures are invented sample data; team members and patients are anonymised.",
+    "real": "Your real data – processed only in this browser, nothing is uploaded.",
+    "clear": "Delete data",
+    "clearConfirm": "Delete all imported data from this browser?"
+  },
+  "header": {
+    "view": {
+      "label": "View",
+      "data": "Data",
+      "insights": "Insights"
+    },
+    "lang": {
+      "label": "Language"
+    },
+    "month": {
+      "label": "Month",
+      "prev": "Previous month",
+      "next": "Next month"
+    },
+    "weekly": "Weekly summary",
+    "synced": "Last synced: {{when}} · {{sources}}",
+    "syncedNone": "No data source connected",
+    "dataSuffix": "{{page}} · all figures"
+  },
+  "nav": {
+    "label": "Pages",
+    "overview": {
+      "name": "Overview",
+      "sub": "What happened, and why"
+    },
+    "revenue": {
+      "name": "Revenue",
+      "sub": "What changed"
+    },
+    "plans": {
+      "name": "Treatment plans",
+      "sub": "Planned but not booked"
+    },
+    "marketing": {
+      "name": "Marketing",
+      "sub": "Requests, Instagram, Google"
+    },
+    "patients": {
+      "name": "Patients & prevention",
+      "sub": "Who comes back for check-ups"
+    },
+    "chairs": {
+      "name": "Treatment time & team",
+      "sub": "Time used and time free"
+    },
+    "ask": {
+      "name": "Ask a question",
+      "sub": "Answers from your numbers"
+    },
+    "sources": {
+      "name": "Data sources",
+      "sub": "Connect and upload"
+    }
+  },
+  "question": {
+    "overview": "What happened in {{month}}, and why?",
+    "revenue": "Why did revenue change?",
+    "plans": "How much planned treatment never gets booked?",
+    "marketing": "Does your marketing bring new patients?",
+    "patients": "Do patients come back for check-ups?",
+    "chairs": "Are we using our treatment time?",
+    "ask": "Ask a question",
+    "sources": "Data sources"
+  },
+  "staff": {
+    "demo": {
+      "A": "Dentist A",
+      "B": "Dentist B",
+      "C": "Dentist C",
+      "D": "Hygienist D",
+      "E": "Hygienist E"
+    },
+    "role": {
+      "dentist": "Dentist {{label}}",
+      "hygienist": "Hygienist {{label}}",
+      "assistant": "Assistant {{label}}"
+    },
+    "roleName": {
+      "dentist": "Dentist",
+      "hygienist": "Hygienist",
+      "assistant": "Assistant"
+    },
+    "team": "Team"
+  },
+  "treatment": {
+    "implants_surgery": "Implants & oral surgery",
+    "crowns_lab": "Crowns, bridges & in-house lab",
+    "aesthetics": "Aesthetics",
+    "endo_perio": "Root canal & gum treatment",
+    "prevention": "Prevention & professional cleaning",
+    "checkups_cmd": "Check-ups, fillings & CMD"
+  },
+  "channel": {
+    "website": "Website request",
+    "google": "Google",
+    "instagram": "Instagram",
+    "referral": "Referrals & family",
+    "reviews": "Reviews",
+    "intl_site": "English & Russian site",
+    "phone": "Phone",
+    "none": "No source recorded"
+  },
+  "district": {
+    "charlottenburg": "Charlottenburg",
+    "westend": "Westend",
+    "wilmersdorf": "Wilmersdorf",
+    "grunewald": "Grunewald",
+    "spandau": "Spandau",
+    "schoeneberg": "Schöneberg",
+    "other": "Other districts",
+    "unknown": "Unknown"
+  },
+  "payer": {
+    "GKV": "Statutory insurance (GKV)",
+    "PKV": "Private insurance (PKV)",
+    "self": "Self-pay"
+  },
+  "postType": {
+    "before_after": "Before & after",
+    "implant_lab": "Implant cases & lab",
+    "team": "Team & practice life",
+    "tips": "Tips & education",
+    "anxious": "Anxious patients & sedation"
+  },
+  "sourceName": {
+    "pvs": "Practice software",
+    "webform": "Website request form",
+    "inbox": "Front-desk inbox",
+    "instagram": "Instagram",
+    "google_ads": "Google Ads",
+    "gbp": "Google Business Profile",
+    "provenexpert": "ProvenExpert",
+    "phone": "Phone system",
+    "lab": "In-house lab software",
+    "instalments": "Instalment provider"
+  },
+  "eventType": {
+    "holiday": "Holiday",
+    "staff_change": "Staff change",
+    "campaign": "Campaign",
+    "price_change": "Price change",
+    "closure": "Practice closed",
+    "other": "Other"
+  },
+  "events": {
+    "demo": {
+      "closure": "Practice closed over Christmas and New Year",
+      "holidayA": "Dentist A on holiday (5 working days)",
+      "holidayB": "Dentist B on holiday (10 working days)",
+      "holidayC": "Dentist C on holiday (5 working days)",
+      "pricePzr": "Price of professional cleaning raised by about 5%",
+      "campaignIg": "Instagram series “Before & after”",
+      "publicHoliday": "Public holiday"
+    }
+  },
+  "common": {
+    "notEnough": "Not enough data",
+    "notEnoughSource": "Missing for this: {{source}}.",
+    "connect": "Connect {{source}}",
+    "connectHint": "Connect {{source}} to see these figures.",
+    "tooFew": "Too few cases to draw a conclusion.",
+    "fewCases": "few cases",
+    "vsPrev": "vs {{month}}",
+    "estimate": "estimate",
+    "about": "about",
+    "close": "Close",
+    "details": "Details",
+    "sources": "Sources",
+    "total": "Total",
+    "month": "Month",
+    "yes": "Yes",
+    "no": "No",
+    "unknown": "Unknown",
+    "notRecorded": "not recorded",
+    "help": "Explanation: {{label}}",
+    "selected": "selected",
+    "goTo": "Go to “{{page}}”",
+    "linkNotProof": "This is a link, not proof.",
+    "worthChecking": "Worth checking",
+    "days": "{{n}} days",
+    "clickRow": "Click a row for details.",
+    "clickBar": "Click a bar to select the month.",
+    "patient": "Patient",
+    "noData": "No data in this month.",
+    "pageSoon": "This page follows in the next step."
+  }
+}
