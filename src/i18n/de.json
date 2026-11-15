@@ -719,7 +719,8 @@
       "direct": "Viele dieser Patienten kommen ohne vorherige Anfrage direkt in die Praxis.",
       "noRequests": "Anfragen dieses Kanals sind nicht verbunden.",
       "noSource": "{{count}} Neupatienten ({{share}}) haben keine erfasste Quelle.",
-      "noSourceHint": "Eine Frage im Anamnesebogen schließt die Lücke: „Wie sind Sie auf uns aufmerksam geworden?“"
+      "noSourceHint": "Eine Frage im Anamnesebogen schließt die Lücke: „Wie sind Sie auf uns aufmerksam geworden?“",
+      "onlyPatients": "{{patients}} Neupatienten"
     },
     "funnel": {
       "title": "{{channel}}: von der Anfrage zum Patienten",
@@ -808,7 +809,8 @@
       "perMissed": "Wert pro ausgefallenem Termin",
       "neverValue": "Wert der nie gebuchten Zeit",
       "neverHelp": "Nie gebuchte Termine mal Durchschnittswert einer Kontrolle oder Zahnreinigung. Eine vorsichtige Schätzung.",
-      "missedMostly": "Am häufigsten: {{first}} und {{second}}"
+      "missedMostly": "Am häufigsten: {{first}} und {{second}}",
+      "missedDelta": "{{n}} Ausfälle ggü. Vormonat"
     },
     "reasons": "Bei {{notRecorded}} von {{total}} Ausfällen ist kein Grund erfasst.",
     "team": {

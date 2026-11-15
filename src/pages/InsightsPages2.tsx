@@ -159,7 +159,7 @@ export function MarketingInsights() {
                       <span className="grid items-center gap-x-4 gap-y-0.5 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)_4.5rem]">
                         <span className="text-sm font-semibold">{names.channel(r.channel)}</span>
                         <span className="min-w-0">
-                          <span className="num block text-sm text-ink">{r.requests === null ? f.num(r.newPatients) + ' ' + t('data.col.newPatients') : t('mkt.channels.fromTo', { requests: f.num(r.requests), patients: f.num(r.newPatients) })}</span>
+                          <span className="num block text-sm text-ink">{r.requests === null ? t('mkt.channels.onlyPatients', { patients: f.num(r.newPatients) }) : t('mkt.channels.fromTo', { requests: f.num(r.requests), patients: f.num(r.newPatients) })}</span>
                           <span className="block text-[13px] leading-snug text-muted">{channelSentence(r)}</span>
                         </span>
                         <span className="big-num text-lg font-semibold sm:text-right">{r.conversionPct === null ? f.dash : f.pct(Math.min(r.conversionPct, 100))}</span>
@@ -567,7 +567,7 @@ export function ChairsInsights() {
                 help={t('m.missed.help')}
                 value={f.eur(m.value)}
                 tone="loss"
-                delta={missedPrev ? <Delta value={m.total - missedPrev.total} text={`${f.numSigned(m.total - missedPrev.total)} ${t('m.missed.label')}`} goodWhen="down" /> : undefined}
+                delta={missedPrev ? <Delta value={m.total - missedPrev.total} text={t('chairs.tile.missedDelta', { n: f.numSigned(m.total - missedPrev.total) })} goodWhen="down" /> : undefined}
                 sub={m.byTreatment.length >= 2 ? t('chairs.tile.missedMostly', { first: names.treatment(m.byTreatment[0].treatment), second: names.treatment(m.byTreatment[1].treatment) }) : undefined}
               />
               <Tile label={t('chairs.tile.perMissed')} value={f.eur(m.valuePerAppointment)} />

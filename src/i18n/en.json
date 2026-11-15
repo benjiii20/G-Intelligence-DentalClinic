@@ -719,7 +719,8 @@
       "direct": "Many of these patients come straight to the practice without a request first.",
       "noRequests": "Requests from this channel are not connected.",
       "noSource": "{{count}} new patients ({{share}}) have no recorded source.",
-      "noSourceHint": "One question on the medical history form closes the gap: “Wie sind Sie auf uns aufmerksam geworden?” (How did you hear about us?)"
+      "noSourceHint": "One question on the medical history form closes the gap: “Wie sind Sie auf uns aufmerksam geworden?” (How did you hear about us?)",
+      "onlyPatients": "{{patients}} new patients"
     },
     "funnel": {
       "title": "{{channel}}: from request to patient",
@@ -808,7 +809,8 @@
       "perMissed": "Value per missed appointment",
       "neverValue": "Value of time never booked",
       "neverHelp": "Slots never booked times the average value of a check-up or cleaning. A cautious estimate.",
-      "missedMostly": "Most often: {{first}} and {{second}}"
+      "missedMostly": "Most often: {{first}} and {{second}}",
+      "missedDelta": "{{n}} missed vs last month"
     },
     "reasons": "No reason is recorded for {{notRecorded}} of {{total}} missed appointments.",
     "team": {

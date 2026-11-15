@@ -99,7 +99,10 @@ function validateContext(ctx: unknown): PromptContext | null {
 
 export function createApp(options: AppOptions = {}): Express {
   const model = options.model ?? process.env.ANTHROPIC_MODEL ?? 'claude-sonnet-5-5';
-  const maxTokens = options.maxTokens ?? Number(process.env.AI_MAX_TOKENS ?? 2500);
+  // Claude Sonnet 5.5 can skip thinking before its answer ("between_tools"), so ~1,200 output tokens are enough.
+  // Other models think before answering, and the thinking counts against max_tokens, so they get more room.
+  const thinkingOff = model === 'claude-sonnet-5-5';
+  const maxTokens = options.maxTokens ?? Number(process.env.AI_MAX_TOKENS ?? (thinkingOff ? 1200 : 4000));
   const limit = options.rateLimit ?? 20;
   const windowMs = options.rateWindowMs ?? 10 * 60 * 1000;
   const upstreamTimeoutMs = options.upstreamTimeoutMs ?? 45_000;
@@ -187,7 +190,8 @@ export function createApp(options: AppOptions = {}): Express {
           system: buildSystemPrompt(ctx),
           tools: TOOL_DEFS.map((t) => ({ name: t.name, description: t.description, input_schema: t.input_schema })),
           messages: body.messages,
-          // Thinking is always on for this model; low effort keeps answers quick and short.
+          ...(thinkingOff ? { thinking: { type: 'between_tools' } } : {}),
+          // low effort keeps answers quick and short; the numbers come from the tools anyway
           output_config: { effort: 'low' },
           cache_control: { type: 'ephemeral' },
           // If the model declines for policy reasons, the API retries once on its fallback model.
