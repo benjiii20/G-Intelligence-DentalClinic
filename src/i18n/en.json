@@ -640,9 +640,8 @@
     }
   },
   "plans": {
-    "answer": "In {{month}}, {{proposed}} of treatment was planned. {{acceptance}} of it is booked.",
-    "answerSub": "In total, {{open}} of planned treatment is open, {{under3}} of it for less than 3 months.",
-    "answerChange": "In {{prevMonth}}, acceptance was {{previous}}.",
+    "answer": "In {{month}}, patients said yes to {{accepted}} of the {{proposed}} in treatment you proposed. That is {{acceptance}}.",
+    "answerChange": "In {{prevMonth}}, that share was still {{previous}}.",
     "bar": {
       "title": "What became of the plans from the last 12 months?",
       "booked": "Booked",
@@ -651,8 +650,8 @@
       "closed": "Declined or expired"
     },
     "onePoint": {
-      "label": "Value of +1 point of acceptance",
-      "text": "One more point of acceptance on this month's plans equals {{value}} of booked treatment."
+      "label": "What 1 more percentage point is worth:",
+      "text": "If patients said yes to 1 percentage point more of this month's plans, that would be {{value}} more booked treatment."
     },
     "inst": {
       "title": "Does offering instalments help?",
@@ -693,7 +692,10 @@
       "wants_to_think": "Wants to think",
       "second_opinion": "Second opinion",
       "other": "Other"
-    }
+    },
+    "whatIs": "A treatment plan (in German: HKP) is the cost estimate that the patient accepts or declines before treatment starts.",
+    "answerOpen": "Plans worth {{open}} are still waiting for a yes or no, from all months together.",
+    "answerFresh": "{{under3}} of that is less than 3 months old. These are most worth a follow-up call."
   },
   "mkt": {
     "answer": {

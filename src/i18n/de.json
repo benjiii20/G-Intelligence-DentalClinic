@@ -640,9 +640,8 @@
     }
   },
   "plans": {
-    "answer": "Im {{month}} wurden {{proposed}} Behandlung geplant. Davon sind {{acceptance}} gebucht.",
-    "answerSub": "Insgesamt sind {{open}} geplante Behandlung offen, davon {{under3}} seit weniger als 3 Monaten.",
-    "answerChange": "Im {{prevMonth}} lag die Annahmequote bei {{previous}}.",
+    "answer": "Im {{month}} haben Patienten {{accepted}} von {{proposed}} vorgeschlagener Behandlung zugesagt. Das sind {{acceptance}}.",
+    "answerChange": "Im {{prevMonth}} lag dieser Anteil noch bei {{previous}}.",
     "bar": {
       "title": "Was ist aus den Plänen der letzten 12 Monate geworden?",
       "booked": "Gebucht",
@@ -651,8 +650,8 @@
       "closed": "Abgelehnt oder abgelaufen"
     },
     "onePoint": {
-      "label": "Wert von +1 Punkt Annahmequote",
-      "text": "Ein Punkt mehr Annahme bei den Plänen dieses Monats entspricht {{value}} gebuchter Behandlung."
+      "label": "Was 1 Prozentpunkt mehr wert ist:",
+      "text": "Würden Patienten 1 Prozentpunkt mehr der Pläne dieses Monats annehmen, wären das {{value}} mehr gebuchte Behandlung."
     },
     "inst": {
       "title": "Hilft das Angebot der Ratenzahlung?",
@@ -693,7 +692,10 @@
       "wants_to_think": "Bedenkzeit",
       "second_opinion": "Zweitmeinung",
       "other": "Sonstiges"
-    }
+    },
+    "whatIs": "Ein Behandlungsplan (HKP) ist der Kostenvoranschlag, den der Patient vor der Behandlung annimmt oder ablehnt.",
+    "answerOpen": "Pläne über {{open}} warten noch auf ein Ja oder Nein, aus allen Monaten zusammen.",
+    "answerFresh": "{{under3}} davon sind jünger als 3 Monate. Hier lohnt sich ein Anruf am meisten."
   },
   "mkt": {
     "answer": {

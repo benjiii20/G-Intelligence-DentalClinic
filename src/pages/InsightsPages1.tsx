@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { Answer, Card, Delta, DivergingRow, InfoTip, KeyVal, Metric, NotEnough, Note, PageLink, Panel, SourcesLine, StackedBar, Term, Tile, TileGrid, WithPanel, cx } from '../components/ui';
+import { Answer, Card, Delta, DivergingRow, InfoTip, KeyVal, Metric, NotEnough, Note, PageLink, Panel, SourcesLine, StackedBar, Tile, TileGrid, WithPanel, cx } from '../components/ui';
 import { addDays, addMonths } from '../data/dates';
 import type { Treatment } from '../data/types';
 import { useT } from '../i18n';
@@ -423,12 +423,16 @@ export function PlansInsights() {
           <Answer
             sub={
               <>
-                {open.value && t('plans.answerSub', { open: f.eur(open.value.total), under3: f.eur(open.value.under3) })}{' '}
-                {summaryPrev?.acceptancePct != null && t('plans.answerChange', { prevMonth: f.monthName(prevMonth), previous: f.pct(summaryPrev.acceptancePct) })}
+                <span className="block">{t('plans.whatIs')}</span>
+                <span className="mt-2 block space-y-1 text-ink">
+                  {summaryPrev?.acceptancePct != null && <span className="block">{t('plans.answerChange', { prevMonth: f.monthName(prevMonth), previous: f.pct(summaryPrev.acceptancePct) })}</span>}
+                  {open.value && <span className="block">{t('plans.answerOpen', { open: f.eur(open.value.total) })}</span>}
+                  {open.value && <span className="block">{t('plans.answerFresh', { under3: f.eur(open.value.under3) })}</span>}
+                </span>
               </>
             }
           >
-            {t('plans.answer', { month: f.monthName(month), proposed: f.eur(s.proposed), acceptance: f.pct(s.acceptancePct) })} <Term k="hkp" />
+            {t('plans.answer', { month: f.monthName(month), accepted: f.eur(s.accepted), proposed: f.eur(s.proposed), acceptance: f.pct(s.acceptancePct) })}
           </Answer>
         )}
       </Metric>
@@ -449,7 +453,7 @@ export function PlansInsights() {
         {summary.value && (
           <div className="mt-4 border-t border-line pt-3">
             <p className="text-sm text-ink">
-              <span className="font-semibold">{t('plans.onePoint.label')}: </span>
+              <span className="font-semibold">{t('plans.onePoint.label')} </span>
               {t('plans.onePoint.text', { value: f.eur(summary.value.onePoint) })}
             </p>
           </div>
