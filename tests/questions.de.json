@@ -1,0 +1,716 @@
+[
+  {
+    "question": "Warum ist der Umsatz im Oktober gesunken?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "revenue_why",
+    "expectedTools": [
+      "get_revenue_breakdown"
+    ],
+    "expectedNumbers": [
+      120120,
+      13907
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was hat sich beim Umsatz verändert?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "revenue_why",
+    "expectedTools": [
+      "get_revenue_breakdown"
+    ],
+    "expectedNumbers": [
+      120120,
+      13907
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wieso sind die Einnahmen gefallen?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "revenue_why",
+    "expectedTools": [
+      "get_revenue_breakdown"
+    ],
+    "expectedNumbers": [
+      120120,
+      13907
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viel geplante Behandlung ist noch nicht gebucht?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "open_plans",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      325060,
+      137340
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Behandlungspläne sind noch offen?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "open_plans",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      325060,
+      137340
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie hoch ist der Wert der offenen HKP?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "open_plans",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      325060,
+      137340
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie schnell beantworten wir Online-Anfragen?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "request_speed",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      43,
+      92
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Antworten wir schnell genug auf das Anfrageformular?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "request_speed",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      43,
+      92
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Anfragen haben länger als zwei Stunden gewartet?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "waiting",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      52
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Patienten sind für die Kontrolle überfällig?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "overdue",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [
+      232,
+      27434
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Recall-Patienten fehlen uns?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "overdue",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [
+      232,
+      27434
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Kommen die Patienten zur Zahnreinigung wieder?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "overdue",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [
+      232,
+      27434
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was kosten uns Terminausfälle?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "missed",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      11578,
+      73
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Termine wurden abgesagt?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "missed",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      11578,
+      73
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Patienten sind nicht erschienen?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "missed",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      11578,
+      73
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Hilft das Angebot der Ratenzahlung?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "instalments",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      79,
+      60
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Lohnt es sich, Ratenzahlung anzubieten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "instalments",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      79,
+      60
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Woher kommen unsere Neupatienten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "sources",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      49
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Welcher Kanal bringt die meisten Patienten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "sources",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      49
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "In welchem Bezirk wohnen unsere neuen Patienten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "sources",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      49
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele Neupatienten hatten wir?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "new_patients",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [
+      49
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viele neue Patienten kamen im Oktober?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "new_patients",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [
+      49
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Welche Instagram-Beiträge bringen Patienten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "instagram",
+    "expectedTools": [
+      "get_instagram"
+    ],
+    "expectedNumbers": [
+      41263
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Bringt Instagram neue Patienten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "instagram",
+    "expectedTools": [
+      "get_instagram"
+    ],
+    "expectedNumbers": [
+      41263
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie ist unsere Reichweite?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "instagram",
+    "expectedTools": [
+      "get_instagram"
+    ],
+    "expectedNumbers": [
+      41263
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Lohnt sich Google Ads?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "google_ads",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      1428,
+      79
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was kostet uns ein Neupatient über Google?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "google_ads",
+    "expectedTools": [
+      "get_marketing"
+    ],
+    "expectedNumbers": [
+      1428,
+      79
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Worauf sollten wir uns diesen Monat konzentrieren?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "focus",
+    "expectedTools": [
+      "get_month_summary"
+    ],
+    "expectedNumbers": [],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was ist jetzt am wichtigsten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "focus",
+    "expectedTools": [
+      "get_month_summary"
+    ],
+    "expectedNumbers": [],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wo bleibt Geld liegen?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "focus",
+    "expectedTools": [
+      "get_month_summary"
+    ],
+    "expectedNumbers": [],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was ist unser Gewinn pro Implantat?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "profit",
+    "expectedTools": [],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie hoch ist unser Gewinn?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "profit",
+    "expectedTools": [],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie ist unsere Marge bei Kronen?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "profit",
+    "expectedTools": [],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Warum sagen Patienten ihre Termine ab?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "cancel_reasons",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Aus welchem Grund fallen Termine aus?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "cancel_reasons",
+    "expectedTools": [
+      "get_patients_recall"
+    ],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Warum lehnen Patienten Behandlungspläne ab?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "decline_reasons",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie zufrieden sind unsere Patienten?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "not_in_data",
+    "expectedTools": [],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was macht die Konkurrenz besser?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "not_in_data",
+    "expectedTools": [],
+    "expectedNumbers": [],
+    "mustRefuse": true,
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Welcher Wochentag hat die meiste freie Zeit?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "weekday",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      76
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Nutzen wir unsere Behandlungszeit?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "weekday",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      76
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Was war unser bester Monat?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "best_month",
+    "expectedTools": [
+      "get_monthly_series"
+    ],
+    "expectedNumbers": [
+      136044
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Welcher Monat hatte den höchsten Umsatz?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "best_month",
+    "expectedTools": [
+      "get_monthly_series"
+    ],
+    "expectedNumbers": [
+      136044
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Welcher Zahnarzt hat die niedrigste Annahmequote?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "dentist_acceptance",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      45
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie war die Annahmequote im ersten Halbjahr?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "acceptance_period",
+    "expectedTools": [
+      "get_treatment_plans"
+    ],
+    "expectedNumbers": [
+      65
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wer bucht am seltensten den nächsten Termin?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "rebooking",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      71
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie oft gehen Patienten mit einem Folgetermin nach Hause?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "rebooking",
+    "expectedTools": [
+      "get_capacity_team"
+    ],
+    "expectedNumbers": [
+      71
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie viel Umsatz bleibt im Eigenlabor?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "lab",
+    "expectedTools": [
+      "get_month_summary"
+    ],
+    "expectedNumbers": [
+      6916
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  },
+  {
+    "question": "Wie verteilt sich der Umsatz auf GKV und PKV?",
+    "language": "de",
+    "month": "2026-10",
+    "topic": "lab",
+    "expectedTools": [
+      "get_month_summary"
+    ],
+    "expectedNumbers": [
+      6916
+    ],
+    "mustNotContain": [
+      "weil"
+    ]
+  }
+]

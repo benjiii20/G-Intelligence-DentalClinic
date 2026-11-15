@@ -3,6 +3,7 @@ import { Layout } from './components/Layout';
 import { WeeklySummary } from './components/WeeklySummary';
 import { Card } from './components/ui';
 import { useT } from './i18n';
+import { AskPage } from './pages/Ask';
 import { OverviewData, PlansData, RevenueData } from './pages/DataPages1';
 import { ChairsData, MarketingData, PatientsData } from './pages/DataPages2';
 import { OverviewInsights, PlansInsights, RevenueInsights } from './pages/InsightsPages1';
@@ -23,6 +24,7 @@ const PAGE_COMPONENTS: PageMap = {
   marketing: { data: MarketingData, insights: MarketingInsights },
   patients: { data: PatientsData, insights: PatientsInsights },
   chairs: { data: ChairsData, insights: ChairsInsights },
+  ask: { data: AskPage, insights: AskPage },
   sources: { data: SourcesPage, insights: SourcesPage },
 };
 
