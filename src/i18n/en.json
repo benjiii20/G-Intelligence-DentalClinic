@@ -829,5 +829,96 @@
       "hint": "Click a team member on the left for their trend and treatments.",
       "free": "{{n}} free"
     }
+  },
+  "src": {
+    "intro": "G-Intelligence only reads. It replaces no software and changes nothing in your systems.",
+    "status": {
+      "on": "Connected",
+      "off": "Not connected",
+      "imported": "Imported",
+      "notImported": "Not imported"
+    },
+    "unlocks": "Unlocks",
+    "access": "Access",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "sync": "Sync now",
+    "synced": "Last synced: {{when}}",
+    "demoNote": "In this preview you can disconnect sources and see what goes missing on the other pages.",
+    "card": {
+      "pvs": {
+        "unlocks": "Revenue, appointments, treatment plans, recall, treatment time",
+        "access": "Nightly export from Dampsoft, Charly, CGM Z1 or evident. Pseudonymised patient numbers only."
+      },
+      "webform": {
+        "unlocks": "Number of online requests and their path to becoming patients",
+        "access": "The website request form reports each request with its time and channel."
+      },
+      "inbox": {
+        "unlocks": "How quickly requests are answered",
+        "access": "Only the timestamps of arrival and first reply. The content of e-mails is not read."
+      },
+      "instagram": {
+        "unlocks": "Posts, reach, messages and requests via Instagram",
+        "access": "Read access via Meta Business Suite."
+      },
+      "google_ads": {
+        "unlocks": "Ad spend, cost per new patient and return",
+        "access": "Read access to the Google Ads account."
+      },
+      "gbp": {
+        "unlocks": "New Google reviews",
+        "access": "Read access to the Google Business Profile."
+      },
+      "provenexpert": {
+        "unlocks": "New reviews on ProvenExpert",
+        "access": "Read access to the ProvenExpert profile."
+      },
+      "phone": {
+        "unlocks": "Requests by phone and missed calls",
+        "access": "The phone system's call list. Calls are not recorded."
+      },
+      "lab": {
+        "unlocks": "What is made in the in-house lab and stays in the practice",
+        "access": "Export of lab jobs with the amount per job."
+      },
+      "instalments": {
+        "unlocks": "Whether instalments were offered and whether they help",
+        "access": "Export from the instalment provider: plan number and offer, no credit data."
+      }
+    },
+    "events": {
+      "title": "Events",
+      "intro": "Holidays, staff changes, campaigns and price changes. They appear in Insights wherever they overlap with a change.",
+      "from": "From",
+      "to": "To",
+      "type": "Type",
+      "description": "Description",
+      "staff": "Concerns",
+      "staffNone": "Whole practice",
+      "add": "Add event",
+      "remove": "Remove",
+      "removeLabel": "Remove event: {{name}}",
+      "sample": "Sample",
+      "own": "Your entry",
+      "invalid": "Please fill in the dates and a description. “To” must not be before “From”.",
+      "noNames": "Please do not enter names of patients or staff."
+    },
+    "gdpr": {
+      "title": "Data protection",
+      "text1": "Health data is processed under a data processing agreement (DPA).",
+      "text2": "Only pseudonymised patient numbers are analysed. Names, addresses and diagnoses are never imported.",
+      "text3": "Team members appear without names. The analysis serves practice organisation, not the monitoring of individuals."
+    }
+  },
+  "weekly": {
+    "title": "Weekly summary",
+    "sub": "DentalFirst · as of {{month}}",
+    "money": "Where money is being left on the table",
+    "print": "Print / save as PDF",
+    "email": "Send by e-mail every Monday",
+    "emailDone": "Nothing is sent in this preview. With real data, the summary would arrive every Monday at 7 am.",
+    "footer": "Created with G-Intelligence. All figures come from the connected data sources.",
+    "demo": "Sample data, not real figures."
   }
 }

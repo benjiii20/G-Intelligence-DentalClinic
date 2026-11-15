@@ -10,6 +10,40 @@ renderLiveStateOnServer();
 
 const KEY_LIKE = />\s*([a-z][a-zA-Z0-9]*\.)+[a-zA-Z0-9_]+\s*</;
 
+describe('weekly summary and disconnected sources', () => {
+  for (const lang of ['de', 'en'] as const) {
+    it(`weekly summary renders (${lang})`, async () => {
+      await i18n.changeLanguage(lang);
+      useStore.setState({ lang, view: 'insights', page: 'overview', month: '2026-10', weeklyOpen: true });
+      const html = renderToString(<App />);
+      expect(html).toContain('role="dialog"');
+      expect(html).not.toMatch(KEY_LIKE);
+      useStore.setState({ weeklyOpen: false });
+    });
+    it(`pages show "connect" messages when every source is disconnected (${lang})`, async () => {
+      await i18n.changeLanguage(lang);
+      const all = { ...useStore.getState().connected };
+      const off = Object.fromEntries(Object.keys(all).map((k) => [k, false])) as typeof all;
+      for (const view of ['insights', 'data'] as const) {
+        for (const page of PAGES) {
+          useStore.setState({ lang, view, page, month: '2026-10', selection: null, connected: off });
+          const html = renderToString(<App />);
+          expect(html).not.toMatch(KEY_LIKE);
+          expect(html).not.toContain('NaN');
+        }
+      }
+      // one source at a time
+      for (const key of Object.keys(all)) {
+        for (const page of PAGES) {
+          useStore.setState({ lang, view: 'insights', page, connected: { ...all, [key]: false } });
+          expect(renderToString(<App />)).not.toContain('NaN');
+        }
+      }
+      useStore.setState({ connected: all });
+    });
+  }
+});
+
 describe('every page renders', () => {
   for (const lang of ['de', 'en'] as const) {
     for (const view of ['insights', 'data'] as const) {

@@ -1,11 +1,13 @@
 import type { ComponentType } from 'react';
 import { Layout } from './components/Layout';
+import { WeeklySummary } from './components/WeeklySummary';
 import { Card } from './components/ui';
 import { useT } from './i18n';
 import { OverviewData, PlansData, RevenueData } from './pages/DataPages1';
 import { ChairsData, MarketingData, PatientsData } from './pages/DataPages2';
 import { OverviewInsights, PlansInsights, RevenueInsights } from './pages/InsightsPages1';
 import { ChairsInsights, MarketingInsights, PatientsInsights } from './pages/InsightsPages2';
+import { SourcesPage } from './pages/Sources';
 import { useStore, type PageKey, type View } from './state/store';
 
 function Soon() {
@@ -21,6 +23,7 @@ const PAGE_COMPONENTS: PageMap = {
   marketing: { data: MarketingData, insights: MarketingInsights },
   patients: { data: PatientsData, insights: PatientsInsights },
   chairs: { data: ChairsData, insights: ChairsInsights },
+  sources: { data: SourcesPage, insights: SourcesPage },
 };
 
 export default function App() {
@@ -30,6 +33,7 @@ export default function App() {
   return (
     <Layout>
       <Page />
+      <WeeklySummary />
     </Layout>
   );
 }

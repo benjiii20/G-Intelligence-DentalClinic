@@ -829,5 +829,96 @@
       "hint": "Teammitglied links anklicken: Verlauf und Behandlungen.",
       "free": "{{n}} frei"
     }
+  },
+  "src": {
+    "intro": "G-Intelligence liest nur mit. Es ersetzt keine Software und ändert nichts in Ihren Systemen.",
+    "status": {
+      "on": "Verbunden",
+      "off": "Nicht verbunden",
+      "imported": "Importiert",
+      "notImported": "Nicht importiert"
+    },
+    "unlocks": "Ermöglicht",
+    "access": "Zugang",
+    "connect": "Verbinden",
+    "disconnect": "Trennen",
+    "sync": "Jetzt abgleichen",
+    "synced": "Zuletzt abgeglichen: {{when}}",
+    "demoNote": "In der Vorschau können Sie Quellen trennen und sehen, was auf den anderen Seiten fehlt.",
+    "card": {
+      "pvs": {
+        "unlocks": "Umsatz, Termine, Behandlungspläne, Recall, Behandlungszeit",
+        "access": "Nächtlicher Export aus Dampsoft, Charly, CGM Z1 oder evident. Nur pseudonymisierte Patientennummern."
+      },
+      "webform": {
+        "unlocks": "Zahl der Online-Anfragen und ihr Weg zum Patienten",
+        "access": "Das Anfrageformular der Website meldet jede Anfrage mit Zeitpunkt und Kanal."
+      },
+      "inbox": {
+        "unlocks": "Wie schnell Anfragen beantwortet werden",
+        "access": "Nur Zeitstempel von Eingang und erster Antwort. Der Inhalt der E-Mails wird nicht gelesen."
+      },
+      "instagram": {
+        "unlocks": "Beiträge, Reichweite, Nachrichten und Anfragen über Instagram",
+        "access": "Lesezugriff über die Meta Business Suite."
+      },
+      "google_ads": {
+        "unlocks": "Werbekosten, Kosten pro Neupatient und Rückfluss",
+        "access": "Lesezugriff auf das Google-Ads-Konto."
+      },
+      "gbp": {
+        "unlocks": "Neue Google-Bewertungen",
+        "access": "Lesezugriff auf das Google Unternehmensprofil."
+      },
+      "provenexpert": {
+        "unlocks": "Neue Bewertungen auf ProvenExpert",
+        "access": "Lesezugriff auf das ProvenExpert-Profil."
+      },
+      "phone": {
+        "unlocks": "Anfragen per Telefon und verpasste Anrufe",
+        "access": "Anrufliste der Telefonanlage. Gespräche werden nicht aufgezeichnet."
+      },
+      "lab": {
+        "unlocks": "Was im Eigenlabor gefertigt wird und im Haus bleibt",
+        "access": "Export der Laboraufträge mit Betrag je Auftrag."
+      },
+      "instalments": {
+        "unlocks": "Ob Ratenzahlung angeboten wurde und ob sie hilft",
+        "access": "Export des Ratenzahlungs-Anbieters: Plan-Nummer und Angebot, keine Bonitätsdaten."
+      }
+    },
+    "events": {
+      "title": "Ereignisse",
+      "intro": "Urlaub, Personalwechsel, Kampagnen und Preisänderungen. Sie erscheinen in den Erklärungen, wo sie zu einer Veränderung passen.",
+      "from": "Von",
+      "to": "Bis",
+      "type": "Art",
+      "description": "Beschreibung",
+      "staff": "Betrifft",
+      "staffNone": "Ganze Praxis",
+      "add": "Ereignis hinzufügen",
+      "remove": "Entfernen",
+      "removeLabel": "Ereignis entfernen: {{name}}",
+      "sample": "Beispiel",
+      "own": "Eigener Eintrag",
+      "invalid": "Bitte Datum und Beschreibung ausfüllen. „Bis“ darf nicht vor „Von“ liegen.",
+      "noNames": "Bitte keine Namen von Patienten oder Mitarbeitern eintragen."
+    },
+    "gdpr": {
+      "title": "Datenschutz",
+      "text1": "Gesundheitsdaten werden auf Grundlage eines Vertrags zur Auftragsverarbeitung (AVV) verarbeitet.",
+      "text2": "Ausgewertet werden nur pseudonymisierte Patientennummern. Namen, Adressen und Diagnosen werden nicht übernommen.",
+      "text3": "Teammitglieder erscheinen ohne Namen. Die Auswertung dient der Praxisorganisation, nicht der Leistungskontrolle Einzelner."
+    }
+  },
+  "weekly": {
+    "title": "Wochenbericht",
+    "sub": "DentalFirst · Stand {{month}}",
+    "money": "Wo Geld liegen bleibt",
+    "print": "Drucken / als PDF speichern",
+    "email": "Jeden Montag per E-Mail senden",
+    "emailDone": "In der Vorschau wird nichts versendet. Mit echten Daten käme der Bericht jeden Montag um 7 Uhr.",
+    "footer": "Erstellt mit G-Intelligence. Alle Zahlen stammen aus den verbundenen Datenquellen.",
+    "demo": "Beispieldaten, keine echten Zahlen."
   }
 }
