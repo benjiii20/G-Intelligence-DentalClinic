@@ -136,6 +136,57 @@ describe('AI proxy', () => {
   });
 });
 
+describe('streaming', () => {
+  it('streams text as server-sent events and ends with the final message', async () => {
+    const client: ModelClient = {
+      create: async () => {
+        throw new Error('should stream');
+      },
+      stream: async (_p, { onText }) => {
+        onText('Der Umsatz ');
+        onText('lag bei 120.120 €.');
+        return { content: [{ type: 'text', text: 'Der Umsatz lag bei 120.120 €.' }], stop_reason: 'end_turn' };
+      },
+    };
+    const { post } = await start({ client });
+    const res = await post({ ...ask(), stream: true });
+    expect(res.headers.get('content-type')).toContain('text/event-stream');
+    const body = await res.text();
+    expect(body).toContain('event: text\ndata: {"delta":"Der Umsatz "}');
+    expect(body).toMatch(/event: final\ndata: .*"stop_reason":"end_turn"/);
+  });
+
+  it('reads the stream in the browser, including chunks split mid-event', async () => {
+    const { readEventStream } = await import('../src/ai/toolLoop');
+    const raw = 'event: text\ndata: {"delta":"Hal"}\n\nevent: text\ndata: {"delta":"lo"}\n\nevent: final\ndata: {"content":[{"type":"text","text":"Hallo"}],"stop_reason":"end_turn"}\n\n';
+    const parts = [raw.slice(0, 17), raw.slice(17, 60), raw.slice(60)];
+    const enc = new TextEncoder();
+    const stream = new ReadableStream<Uint8Array>({
+      start(c) {
+        for (const p of parts) c.enqueue(enc.encode(p));
+        c.close();
+      },
+    });
+    const seen: string[] = [];
+    const reply = await readEventStream(stream, (t) => seen.push(t));
+    expect(seen).toEqual(['Hal', 'Hallo']);
+    expect(reply.stop_reason).toBe('end_turn');
+  });
+
+  it('reports a failure after the stream started as an error event', async () => {
+    const client: ModelClient = {
+      create: async () => ({ content: [], stop_reason: 'end_turn' }),
+      stream: async (_p, { onText }) => {
+        onText('Teil');
+        throw new Error('boom');
+      },
+    };
+    const { post } = await start({ client });
+    const body = await (await post({ ...ask(), stream: true })).text();
+    expect(body).toContain('event: error\ndata: {"error":"upstream"}');
+  });
+});
+
 describe('system prompt', () => {
   it('fills every placeholder for both languages and modes', () => {
     const de = buildSystemPrompt({ lang: 'de', month: '2026-10', firstMonth: '2025-10', lastMonth: '2026-10', demo: true });

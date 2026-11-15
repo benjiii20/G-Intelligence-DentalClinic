@@ -15,8 +15,16 @@ export interface ProxyReply {
 }
 
 /** The slice of the Anthropic client the proxy uses (lets tests inject a fake). */
+export interface ModelReply {
+  content: unknown[];
+  stop_reason: string | null;
+  usage?: { input_tokens?: number; output_tokens?: number };
+}
+
 export interface ModelClient {
-  create(params: Record<string, unknown>, options: { signal: AbortSignal }): Promise<{ content: unknown[]; stop_reason: string | null; usage?: { input_tokens?: number; output_tokens?: number } }>;
+  create(params: Record<string, unknown>, options: { signal: AbortSignal }): Promise<ModelReply>;
+  /** Same request, but text is reported as it is written. Optional: without it the proxy answers in one piece. */
+  stream?(params: Record<string, unknown>, options: { signal: AbortSignal; onText: (delta: string) => void }): Promise<ModelReply>;
 }
 
 export interface AppOptions {
@@ -44,7 +52,12 @@ function sdkClient(timeoutMs: number): ModelClient | null {
   const sdk = new Anthropic({ timeout: timeoutMs, maxRetries: 1 });
   return {
     // The beta endpoint is used only for the server-side refusal fallback.
-    create: (params, options) => sdk.beta.messages.create(params as unknown as Anthropic.Beta.Messages.MessageCreateParamsNonStreaming, options) as unknown as ReturnType<ModelClient['create']>,
+    create: (params, options) => sdk.beta.messages.create(params as unknown as Anthropic.Beta.Messages.MessageCreateParamsNonStreaming, options) as unknown as Promise<ModelReply>,
+    stream: async (params, { signal, onText }) => {
+      const stream = sdk.beta.messages.stream(params as unknown as Anthropic.Beta.Messages.MessageCreateParamsNonStreaming, { signal });
+      stream.on('text', onText);
+      return (await stream.finalMessage()) as unknown as ModelReply;
+    },
   };
 }
 
@@ -144,7 +157,7 @@ export function createApp(options: AppOptions = {}): Express {
     };
     if (!client) return fail(503, 'missing_key');
 
-    const body = (req.body ?? {}) as { messages?: unknown; context?: unknown; newQuestion?: unknown };
+    const body = (req.body ?? {}) as { messages?: unknown; context?: unknown; newQuestion?: unknown; stream?: unknown };
     const ctx = validateContext(body.context);
     const problem = validateMessages(body.messages);
     if (!ctx || problem) return fail(400, 'bad_request');
@@ -161,9 +174,14 @@ export function createApp(options: AppOptions = {}): Express {
     res.on('close', () => {
       if (!res.writableEnded) controller.abort();
     });
+    // Streaming: the answer text is sent as server-sent events while it is written.
+    const streaming = body.stream === true && typeof client.stream === 'function';
+    const sse = (event: string, payload: unknown) => res.write(`event: ${event}\ndata: ${JSON.stringify(payload)}\n\n`);
     try {
-      const reply = await client.create(
-        {
+      if (streaming) {
+        res.writeHead(200, { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-cache, no-transform', 'x-accel-buffering': 'no' });
+      }
+      const params = {
           model,
           max_tokens: maxTokens,
           system: buildSystemPrompt(ctx),
@@ -175,25 +193,39 @@ export function createApp(options: AppOptions = {}): Express {
           // If the model declines for policy reasons, the API retries once on its fallback model.
           betas: ['server-side-fallback-2026-07-01'],
           fallbacks: 'default',
-        },
-        { signal: controller.signal },
-      );
+      };
+      const reply = streaming
+        ? await client.stream!(params, { signal: controller.signal, onText: (delta) => sse('text', { delta }) })
+        : await client.create(params, { signal: controller.signal });
       // Only the eight known tools may be requested.
       const tools: string[] = [];
       for (const block of reply.content as { type?: string; name?: unknown }[]) {
         if (block?.type !== 'tool_use') continue;
-        if (!isToolName(block.name)) return fail(502, 'upstream');
+        if (!isToolName(block.name)) {
+          if (!streaming) return fail(502, 'upstream');
+          log(`[ai] upstream ${Date.now() - started}ms`);
+          sse('error', { error: 'upstream' satisfies ProxyErrorCode });
+          res.end();
+          return;
+        }
         tools.push(block.name);
       }
       log(`[ai] ok ${Date.now() - started}ms in=${reply.usage?.input_tokens ?? '?'} out=${reply.usage?.output_tokens ?? '?'} stop=${reply.stop_reason} tools=${tools.join(',') || '-'}`);
-      if (reply.stop_reason === 'refusal') {
-        res.status(200).json({ error: 'refusal' satisfies ProxyErrorCode });
+      const out: ProxyReply | { error: ProxyErrorCode } = reply.stop_reason === 'refusal' ? { error: 'refusal' } : { content: reply.content, stop_reason: reply.stop_reason };
+      if (streaming) {
+        sse('error' in out ? 'error' : 'final', out);
+        res.end();
+      } else res.status(200).json(out);
+    } catch (err) {
+      if (res.writableEnded) return;
+      if (res.headersSent) {
+        // the stream had already started: report the failure as an event
+        const code: ProxyErrorCode = controller.signal.aborted || err instanceof Anthropic.APIConnectionTimeoutError ? 'timeout' : err instanceof Anthropic.RateLimitError ? 'rate_limit' : 'upstream';
+        log(`[ai] ${code} ${Date.now() - started}ms`);
+        sse('error', { error: code });
+        res.end();
         return;
       }
-      const out: ProxyReply = { content: reply.content, stop_reason: reply.stop_reason };
-      res.json(out);
-    } catch (err) {
-      if (res.headersSent || res.writableEnded) return;
       if (controller.signal.aborted || err instanceof Anthropic.APIConnectionTimeoutError) return fail(504, 'timeout');
       if (err instanceof Anthropic.RateLimitError) return fail(429, 'rate_limit');
       if (err instanceof Anthropic.AuthenticationError || err instanceof Anthropic.PermissionDeniedError) return fail(503, 'missing_key');

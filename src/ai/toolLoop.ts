@@ -29,8 +29,10 @@ export interface LoopOptions {
   signal?: AbortSignal;
   /** called when the model asks for a tool, before it runs */
   onTool?: (name: ToolName) => void;
-  /** called with the answer text as it becomes available */
+  /** called with the answer text so far, as it is written */
   onText?: (text: string) => void;
+  /** ask the proxy to stream the text (default: on when onText is given) */
+  stream?: boolean;
   /** proxy address; default is the app's own origin */
   baseUrl?: string;
   fetchImpl?: typeof fetch;
@@ -79,6 +81,45 @@ export function toolContext(data: Dataset, month: string): ToolContext {
   return { month, staffName: names.staff, eventText: names.event };
 }
 
+type ProxyReply = { content?: Block[]; stop_reason?: string | null; error?: AiErrorCode };
+
+/** Reads the server-sent events of the proxy: "text" deltas, then one "final" (or "error") event. */
+export async function readEventStream(body: ReadableStream<Uint8Array>, onText: (textSoFar: string) => void): Promise<ProxyReply> {
+  const reader = body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let text = '';
+  let result: ProxyReply | null = null;
+  const handle = (chunk: string) => {
+    const event = chunk.match(/^event: (.*)$/m)?.[1];
+    const dataLine = chunk.match(/^data: (.*)$/m)?.[1];
+    if (!event || !dataLine) return;
+    let payload: { delta?: string } & ProxyReply;
+    try {
+      payload = JSON.parse(dataLine) as typeof payload;
+    } catch {
+      return;
+    }
+    if (event === 'text' && typeof payload.delta === 'string') {
+      text += payload.delta;
+      onText(text);
+    } else if (event === 'final' || event === 'error') result = payload;
+  };
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let cut: number;
+    while ((cut = buffer.indexOf('\n\n')) >= 0) {
+      handle(buffer.slice(0, cut));
+      buffer = buffer.slice(cut + 2);
+    }
+  }
+  if (buffer.trim()) handle(buffer);
+  if (!result) throw new AiError('upstream');
+  return result;
+}
+
 export async function runAiLoop(question: string, opts: LoopOptions): Promise<LoopResult> {
   const doFetch = opts.fetchImpl ?? fetch;
   const ctx = toolContext(opts.data, opts.month);
@@ -93,25 +134,31 @@ export async function runAiLoop(question: string, opts: LoopOptions): Promise<Lo
   const toolNumbers: number[] = [];
   const context = { lang: opts.lang, month: opts.month, firstMonth: opts.data.firstMonth, lastMonth: opts.data.lastMonth, demo: opts.data.mode === 'demo' };
 
+  const wantStream = opts.stream ?? Boolean(opts.onText);
+
   for (let round = 0; round < MAX_ROUNDS; round++) {
     if (opts.signal?.aborted) throw new AiError('aborted');
     const timeout = new AbortController();
     const timer = setTimeout(() => timeout.abort(), CLIENT_TIMEOUT_MS);
     const onAbort = () => timeout.abort();
     opts.signal?.addEventListener('abort', onAbort);
-    let reply: { content?: Block[]; stop_reason?: string | null; error?: AiErrorCode };
+    let reply: ProxyReply;
     try {
       const res = await doFetch(`${opts.baseUrl ?? ''}/api/ai`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-gi-session': opts.session ?? getSession() },
-        body: JSON.stringify({ messages, context, newQuestion: round === 0 }),
+        body: JSON.stringify({ messages, context, newQuestion: round === 0, stream: wantStream }),
         signal: timeout.signal,
       });
-      try {
-        reply = (await res.json()) as typeof reply;
-      } catch {
-        // no JSON: usually the proxy is not running
-        throw new AiError(res.status === 504 ? 'timeout' : res.status >= 500 ? 'network' : 'upstream');
+      if (res.headers.get('content-type')?.includes('text/event-stream') && res.body) {
+        reply = await readEventStream(res.body, (text) => opts.onText?.(text));
+      } else {
+        try {
+          reply = (await res.json()) as typeof reply;
+        } catch {
+          // no JSON: usually the proxy is not running
+          throw new AiError(res.status === 504 ? 'timeout' : res.status >= 500 ? 'network' : 'upstream');
+        }
       }
     } catch (err) {
       if (err instanceof AiError) throw err;
@@ -136,6 +183,7 @@ export async function runAiLoop(question: string, opts: LoopOptions): Promise<Lo
       return { text, metricCalls, toolNumbers };
     }
 
+    opts.onText?.('');
     // the assistant turn goes back unchanged (it may contain thinking blocks that must not be edited)
     messages.push({ role: 'assistant', content });
     const results: unknown[] = [];

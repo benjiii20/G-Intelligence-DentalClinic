@@ -138,6 +138,20 @@ describe('tool loop with a mocked AI', () => {
     expect(sent).not.toMatch(/patientId|billed"|staffId/);
   });
 
+  it('shows the text as it streams in', async () => {
+    const final = 'Revenue was €120,120.';
+    const streamFetch = (async (_u: RequestInfo | URL, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body));
+      expect(body.stream).toBe(true);
+      const sse = `event: text\ndata: ${JSON.stringify({ delta: 'Revenue was ' })}\n\nevent: text\ndata: ${JSON.stringify({ delta: '€120,120.' })}\n\nevent: final\ndata: ${JSON.stringify({ stop_reason: 'end_turn', content: [{ type: 'text', text: final }] })}\n\n`;
+      return new Response(sse, { headers: { 'content-type': 'text/event-stream' } });
+    }) as typeof fetch;
+    const seen: string[] = [];
+    const a = await answerQuestion('Revenue?', { data, lang: 'en', month: '2026-10', fetchImpl: streamFetch, onText: (t) => seen.push(t) });
+    expect(seen).toEqual(['Revenue was ', 'Revenue was €120,120.', final]);
+    expect(a.text).toBe(final);
+  });
+
   it('flags a number the tools did not return', async () => {
     const a = await answerQuestion('Why did revenue fall?', {
       data,
