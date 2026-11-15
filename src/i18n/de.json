@@ -196,6 +196,309 @@
     "clickBar": "Balken anklicken, um den Monat zu wählen.",
     "patient": "Patient",
     "noData": "Keine Daten in diesem Monat.",
-    "pageSoon": "Diese Seite folgt im nächsten Schritt."
+    "pageSoon": "Diese Seite folgt im nächsten Schritt.",
+    "kShort": "{{n}} Tsd.",
+    "selectMonth": "{{month}} auswählen",
+    "change": "Veränderung",
+    "share": "Anteil",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "sortBy": "Sortieren nach",
+    "rowsShown": "{{shown}} von {{total}} angezeigt"
+  },
+  "m": {
+    "revenue": {
+      "label": "Umsatz",
+      "help": "Summe der abgerechneten Beträge aller erledigten Termine im Monat."
+    },
+    "appointments": {
+      "label": "Termine",
+      "help": "Erledigte Termine. Abgesagte und nicht erschienene Termine zählen nicht mit."
+    },
+    "revenuePerVisit": {
+      "label": "Umsatz pro Termin",
+      "help": "Umsatz geteilt durch die Zahl der erledigten Termine."
+    },
+    "patientsSeen": {
+      "label": "Behandelte Patienten",
+      "help": "Patienten mit mindestens einem erledigten Termin im Monat. Jeder zählt nur einmal."
+    },
+    "newPatients": {
+      "label": "Neupatienten",
+      "help": "Patienten, deren allererster erledigter Termin in diesem Monat liegt."
+    },
+    "existingShare": {
+      "label": "Anteil Bestandspatienten",
+      "help": "Behandelte Patienten ohne Neupatienten, geteilt durch alle behandelten Patienten."
+    },
+    "existingRevenueShare": {
+      "label": "Umsatzanteil Bestandspatienten",
+      "help": "Anteil des Umsatzes, der von Patienten kommt, die schon vorher bei Ihnen waren."
+    },
+    "labRevenue": {
+      "label": "Eigenlabor-Umsatz",
+      "help": "Summe der Laborarbeiten aus dem eigenen Labor. Dieser Teil des Umsatzes bleibt in der Praxis."
+    },
+    "payerMix": {
+      "label": "Umsatz nach Kostenträger",
+      "help": "Umsatz nach Versicherung der Patienten: gesetzlich (GKV), privat (PKV) oder Selbstzahler."
+    },
+    "plansProposed": {
+      "label": "Geplante Behandlung",
+      "help": "Wert aller Heil- und Kostenpläne (HKP), die in diesem Monat erstellt wurden."
+    },
+    "plansAccepted": {
+      "label": "Davon gebucht",
+      "help": "Wert der Pläne aus diesem Monat, die der Patient angenommen hat."
+    },
+    "acceptance": {
+      "label": "Annahmequote",
+      "help": "Angenommener Planwert geteilt durch den vorgeschlagenen Planwert dieses Monats."
+    },
+    "openPlans": {
+      "label": "Offene Pläne",
+      "help": "Wert aller Pläne, die am Monatsende weder angenommen noch abgelehnt waren."
+    },
+    "openUnder3": {
+      "label": "Offen, jünger als 3 Monate",
+      "help": "Offene Pläne, die vor weniger als 3 Monaten erstellt wurden. Hier lohnt sich Nachfassen am meisten."
+    },
+    "openOver3": {
+      "label": "Offen, älter als 3 Monate",
+      "help": "Offene Pläne, die vor mehr als 3 Monaten erstellt wurden. Sie werden nur noch selten gebucht."
+    },
+    "instalments": {
+      "label": "Annahme mit Ratenzahlung",
+      "help": "Anteil angenommener Pläne mit und ohne Ratenzahlungs-Angebot. Es zählen nur Pläne, bei denen das Angebot erfasst ist."
+    },
+    "overdue": {
+      "label": "Überfällig zur Kontrolle",
+      "help": "Patienten, deren Recall-Termin mehr als 30 Tage zurückliegt und die seither nicht zur Kontrolle oder Zahnreinigung da waren."
+    },
+    "nextBooked": {
+      "label": "Nächster Termin gebucht",
+      "help": "Anteil der erledigten Termine, nach denen der Patient mit einem neuen Termin nach Hause ging."
+    },
+    "missed": {
+      "label": "Terminausfälle",
+      "help": "Abgesagte und nicht erschienene Termine. Wert = Anzahl mal Durchschnittswert dieser Terminart."
+    },
+    "cancelled": {
+      "label": "Abgesagt",
+      "help": "Termine, die der Patient oder die Praxis abgesagt hat."
+    },
+    "noShow": {
+      "label": "Nicht erschienen",
+      "help": "Termine, zu denen der Patient ohne Absage nicht kam."
+    },
+    "timeUsed": {
+      "label": "Genutzte Behandlungszeit",
+      "help": "Erledigte Termine geteilt durch die buchbaren Termine. Urlaub und Schließtage sind schon abgezogen."
+    },
+    "neverBooked": {
+      "label": "Nie gebuchte Zeit",
+      "help": "Buchbare Termine minus erledigte, abgesagte und nicht erschienene Termine."
+    },
+    "slots": {
+      "label": "Buchbare Termine",
+      "help": "Termine, die laut Öffnungszeiten und Behandlungszimmern möglich waren."
+    },
+    "onlineRequests": {
+      "label": "Online-Anfragen",
+      "help": "Anfragen über das Website-Formular, per E-Mail, über die englische und russische Website und über Instagram. Ohne Telefon."
+    },
+    "fast2h": {
+      "label": "In 2 Stunden beantwortet",
+      "help": "Anteil der Online-Anfragen mit einer ersten Antwort innerhalb von 2 Stunden Öffnungszeit."
+    },
+    "fastConv": {
+      "label": "Schnell beantwortet → Patient",
+      "help": "Anteil der schnell beantworteten Anfragen, aus denen ein Patient wurde. Berechnet über die letzten 6 Monate."
+    },
+    "slowConv": {
+      "label": "Später beantwortet → Patient",
+      "help": "Anteil der später beantworteten Anfragen, aus denen ein Patient wurde. Berechnet über die letzten 6 Monate."
+    },
+    "missedPatients": {
+      "label": "Entgangene Neupatienten",
+      "help": "Schätzung: spät beantwortete Anfragen mal Unterschied zwischen schneller und später Antwort."
+    },
+    "channelConv": {
+      "label": "Anfrage → Patient",
+      "help": "Neupatienten eines Kanals geteilt durch die Anfragen dieses Kanals."
+    },
+    "requests": {
+      "label": "Anfragen",
+      "help": "Alle Anfragen dieses Kanals, online und per Telefon."
+    },
+    "igPosts": {
+      "label": "Beiträge",
+      "help": "Veröffentlichte Instagram-Beiträge im Monat."
+    },
+    "igReach": {
+      "label": "Reichweite",
+      "help": "Wie oft die Beiträge des Monats gesehen wurden, über alle Beiträge addiert."
+    },
+    "igProfileVisits": {
+      "label": "Profilaufrufe",
+      "help": "Wie oft jemand nach einem Beitrag Ihr Profil geöffnet hat."
+    },
+    "igLinkClicks": {
+      "label": "Link-Klicks",
+      "help": "Klicks auf den Link im Profil, der zur Website führt."
+    },
+    "igMessages": {
+      "label": "Nachrichten",
+      "help": "Erhaltene Instagram-Nachrichten. Nicht jede ist eine Terminanfrage."
+    },
+    "igRequests": {
+      "label": "Anfragen über Instagram",
+      "help": "Terminanfragen per Instagram-Nachricht oder über den Link im Profil."
+    },
+    "igNewPatients": {
+      "label": "Neupatienten über Instagram",
+      "help": "Neupatienten, bei denen Instagram als Quelle erfasst ist."
+    },
+    "adSpend": {
+      "label": "Werbekosten",
+      "help": "Ausgaben für bezahlte Anzeigen im Monat."
+    },
+    "costPerNew": {
+      "label": "Kosten pro Neupatient",
+      "help": "Werbekosten geteilt durch die Neupatienten dieses Kanals."
+    },
+    "returnPerEuro": {
+      "label": "Rückfluss pro 1 € in 6 Monaten",
+      "help": "Schätzung: Neupatienten mal üblicher Umsatz solcher Patienten in den ersten 6 Monaten, geteilt durch die Werbekosten."
+    },
+    "npv6m": {
+      "label": "Wert eines Neupatienten (6 Monate)",
+      "help": "Durchschnittlicher Umsatz eines Neupatienten in seinen ersten 6 Monaten, aus Ihrer bisherigen Historie berechnet."
+    },
+    "patientValueYear": {
+      "label": "Üblicher Patientenwert pro Jahr",
+      "help": "Durchschnittlicher Jahresumsatz pro Bestandspatient."
+    },
+    "recallValue": {
+      "label": "Wert eines Recall-Termins",
+      "help": "Durchschnittlich abgerechneter Betrag einer Zahnreinigung in den letzten 12 Monaten."
+    },
+    "sessions": {
+      "label": "Sitzungen",
+      "help": "Erledigte Termine dieser Behandlungsart."
+    },
+    "avgPerSession": {
+      "label": "Ø pro Sitzung",
+      "help": "Umsatz dieser Behandlungsart geteilt durch ihre Sitzungen."
+    },
+    "reviews": {
+      "label": "Neue Bewertungen",
+      "help": "Neue Bewertungen auf Google und ProvenExpert im Monat, mit Durchschnittsnote."
+    },
+    "visitsPerPatient": {
+      "label": "Termine pro Patient",
+      "help": "Erledigte Termine geteilt durch behandelte Patienten."
+    },
+    "value6mShort": {
+      "label": "Umsatz je Neupatient (6 Monate)",
+      "help": "Üblicher Umsatz eines Neupatienten aus diesem Bezirk in den ersten 6 Monaten, aus der Historie berechnet."
+    }
+  },
+  "data": {
+    "overview": {
+      "revenuePerMonth": "Umsatz pro Monat",
+      "byTreatment": "Umsatz nach Behandlung",
+      "byTeam": "Umsatz nach Team",
+      "byChannel": "Anfragen und Neupatienten nach Kanal"
+    },
+    "col": {
+      "treatment": "Behandlung",
+      "member": "Teammitglied",
+      "role": "Rolle",
+      "channel": "Kanal",
+      "revenue": "Umsatz",
+      "prevRevenue": "Vormonat",
+      "appointments": "Termine",
+      "requests": "Anfragen",
+      "newPatients": "Neupatienten",
+      "conversion": "Anfrage → Patient",
+      "adSpend": "Werbekosten",
+      "nextBooked": "Nächster Termin gebucht",
+      "lab": "Eigenlabor",
+      "proposed": "Vorgeschlagen",
+      "accepted": "Gebucht",
+      "acceptance": "Annahmequote",
+      "open": "Offen am Monatsende",
+      "plans": "Pläne",
+      "dentist": "Behandler",
+      "planId": "Plan-Nr.",
+      "patient": "Patient",
+      "value": "Wert",
+      "created": "Erstellt",
+      "daysOpen": "Tage offen",
+      "instalments": "Ratenzahlung angeboten",
+      "fast": "In 2 Std. beantwortet",
+      "viaWebsite": "über Website",
+      "viaGoogle": "über Google",
+      "viaInstagram": "über Instagram",
+      "noSource": "ohne Quelle",
+      "district": "Bezirk",
+      "posts": "Beiträge",
+      "reach": "Reichweite",
+      "avgReach": "Ø Reichweite pro Beitrag",
+      "profileVisits": "Profilaufrufe",
+      "linkClicks": "Link-Klicks",
+      "messages": "Nachrichten",
+      "postType": "Art des Beitrags",
+      "seen": "Behandelt",
+      "existing": "Bestand",
+      "overdue": "Überfällig",
+      "lastVisit": "Letzter Termin",
+      "visits": "Termine",
+      "totalBilled": "Abgerechnet gesamt",
+      "lastSeenBy": "Zuletzt bei",
+      "slots": "Buchbar",
+      "completed": "Erledigt",
+      "cancelled": "Abgesagt",
+      "noShow": "Nicht erschienen",
+      "neverBooked": "Nie gebucht",
+      "used": "Genutzt",
+      "weekday": "Wochentag"
+    },
+    "revenue": {
+      "monthly": "Umsatz pro Monat nach Behandlung",
+      "thisMonth": "Umsatz nach Behandlung im {{month}}",
+      "payerLab": "Kostenträger und Eigenlabor pro Monat"
+    },
+    "plans": {
+      "openPerMonth": "Offene Pläne am Monatsende",
+      "monthly": "Pläne pro Monat",
+      "byDentist": "Annahmequote nach Behandler im {{month}}",
+      "openList": "Offene Pläne (pseudonymisiert)"
+    },
+    "marketing": {
+      "requestsPerMonth": "Online-Anfragen pro Monat",
+      "channels": "Kanäle im {{month}}",
+      "monthly": "Anfragen und Neupatienten pro Monat",
+      "districts": "Neupatienten nach Bezirk im {{month}}",
+      "igMonthly": "Instagram pro Monat",
+      "igTypes": "Instagram nach Art des Beitrags (6 Monate bis {{month}})"
+    },
+    "patients": {
+      "perMonth": "Behandelte Patienten pro Monat",
+      "monthly": "Patienten pro Monat",
+      "list": "Patientenliste (pseudonymisiert)",
+      "sort": {
+        "lastVisit": "Letzter Termin",
+        "totalBilled": "Abgerechnet gesamt",
+        "visits": "Termine"
+      }
+    },
+    "chairs": {
+      "perMonth": "Erledigte Termine pro Monat",
+      "monthly": "Behandlungszeit pro Monat",
+      "team": "Team im {{month}}",
+      "weekdays": "Wochentage im {{month}}"
+    }
   }
 }

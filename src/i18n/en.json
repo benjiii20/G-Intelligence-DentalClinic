@@ -196,6 +196,309 @@
     "clickBar": "Click a bar to select the month.",
     "patient": "Patient",
     "noData": "No data in this month.",
-    "pageSoon": "This page follows in the next step."
+    "pageSoon": "This page follows in the next step.",
+    "kShort": "{{n}}k",
+    "selectMonth": "Select {{month}}",
+    "change": "Change",
+    "share": "Share",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "sortBy": "Sort by",
+    "rowsShown": "{{shown}} of {{total}} shown"
+  },
+  "m": {
+    "revenue": {
+      "label": "Revenue",
+      "help": "Sum of the billed amounts of all completed appointments in the month."
+    },
+    "appointments": {
+      "label": "Appointments",
+      "help": "Completed appointments. Cancelled and missed appointments are not counted."
+    },
+    "revenuePerVisit": {
+      "label": "Revenue per visit",
+      "help": "Revenue divided by the number of completed appointments."
+    },
+    "patientsSeen": {
+      "label": "Patients seen",
+      "help": "Patients with at least one completed appointment in the month. Each one counts once."
+    },
+    "newPatients": {
+      "label": "New patients",
+      "help": "Patients whose very first completed appointment is in this month."
+    },
+    "existingShare": {
+      "label": "Existing patients share",
+      "help": "Patients seen minus new patients, divided by all patients seen."
+    },
+    "existingRevenueShare": {
+      "label": "Existing patients' share of revenue",
+      "help": "Share of revenue that comes from patients who had been with you before."
+    },
+    "labRevenue": {
+      "label": "In-house lab revenue",
+      "help": "Sum of the work done in your own lab. This part of revenue stays in the practice."
+    },
+    "payerMix": {
+      "label": "Revenue by payer",
+      "help": "Revenue by the patients' insurance: statutory (GKV), private (PKV) or self-pay."
+    },
+    "plansProposed": {
+      "label": "Planned treatment",
+      "help": "Value of all treatment plans (cost estimates) created in this month."
+    },
+    "plansAccepted": {
+      "label": "Booked from these",
+      "help": "Value of this month's plans that the patient accepted."
+    },
+    "acceptance": {
+      "label": "Plan acceptance",
+      "help": "Accepted plan value divided by the plan value proposed in this month."
+    },
+    "openPlans": {
+      "label": "Open plans",
+      "help": "Value of all plans that were neither accepted nor declined at the end of the month."
+    },
+    "openUnder3": {
+      "label": "Open, under 3 months",
+      "help": "Open plans created less than 3 months ago. Following up is most worthwhile here."
+    },
+    "openOver3": {
+      "label": "Open, older than 3 months",
+      "help": "Open plans created more than 3 months ago. These are rarely booked any more."
+    },
+    "instalments": {
+      "label": "Acceptance with instalments",
+      "help": "Share of accepted plans with and without an instalment offer. Only plans where the offer is recorded are counted."
+    },
+    "overdue": {
+      "label": "Overdue for check-up",
+      "help": "Patients more than 30 days past their recall date who have not been in for a check-up or cleaning since."
+    },
+    "nextBooked": {
+      "label": "Next appointment booked",
+      "help": "Share of completed appointments after which the patient left with a new appointment."
+    },
+    "missed": {
+      "label": "Missed appointments",
+      "help": "Cancelled appointments plus no-shows. Value = count times the average value of that type of appointment."
+    },
+    "cancelled": {
+      "label": "Cancelled",
+      "help": "Appointments cancelled by the patient or the practice."
+    },
+    "noShow": {
+      "label": "No-shows",
+      "help": "Appointments the patient missed without cancelling."
+    },
+    "timeUsed": {
+      "label": "Treatment time used",
+      "help": "Completed appointments divided by bookable slots. Holidays and closure days are already taken out."
+    },
+    "neverBooked": {
+      "label": "Time never booked",
+      "help": "Bookable slots minus completed, cancelled and missed appointments."
+    },
+    "slots": {
+      "label": "Bookable slots",
+      "help": "Appointments that were possible given opening hours and treatment rooms."
+    },
+    "onlineRequests": {
+      "label": "Online requests",
+      "help": "Requests via the website form, e-mail, the English and Russian site and Instagram. Phone calls are not included."
+    },
+    "fast2h": {
+      "label": "Answered within 2 hours",
+      "help": "Share of online requests that got a first reply within 2 hours of opening time."
+    },
+    "fastConv": {
+      "label": "Answered fast → patient",
+      "help": "Share of quickly answered requests that became a patient. Calculated over the last 6 months."
+    },
+    "slowConv": {
+      "label": "Answered later → patient",
+      "help": "Share of requests answered later that became a patient. Calculated over the last 6 months."
+    },
+    "missedPatients": {
+      "label": "Missed new patients",
+      "help": "Estimate: requests answered late times the difference between fast and late replies."
+    },
+    "channelConv": {
+      "label": "Request → patient",
+      "help": "New patients from a channel divided by the requests from that channel."
+    },
+    "requests": {
+      "label": "Requests",
+      "help": "All requests from this channel, online and by phone."
+    },
+    "igPosts": {
+      "label": "Posts",
+      "help": "Instagram posts published in the month."
+    },
+    "igReach": {
+      "label": "Reach",
+      "help": "How many times the month's posts were seen, added up over all posts."
+    },
+    "igProfileVisits": {
+      "label": "Profile visits",
+      "help": "How often someone opened your profile after a post."
+    },
+    "igLinkClicks": {
+      "label": "Link clicks",
+      "help": "Clicks on the link in your bio that leads to the website."
+    },
+    "igMessages": {
+      "label": "Messages",
+      "help": "Instagram messages received. Not every one is an appointment request."
+    },
+    "igRequests": {
+      "label": "Requests via Instagram",
+      "help": "Appointment requests by Instagram message or via the link in bio."
+    },
+    "igNewPatients": {
+      "label": "New patients via Instagram",
+      "help": "New patients with Instagram recorded as their source."
+    },
+    "adSpend": {
+      "label": "Ad spend",
+      "help": "Money spent on paid ads in the month."
+    },
+    "costPerNew": {
+      "label": "Cost per new patient",
+      "help": "Ad spend divided by the new patients from this channel."
+    },
+    "returnPerEuro": {
+      "label": "Return per €1 within 6 months",
+      "help": "Estimate: new patients times the usual revenue of such patients in their first 6 months, divided by ad spend."
+    },
+    "npv6m": {
+      "label": "Value of a new patient (6 months)",
+      "help": "Average revenue of a new patient in the first 6 months, calculated from your history."
+    },
+    "patientValueYear": {
+      "label": "Typical patient value per year",
+      "help": "Average yearly revenue per existing patient."
+    },
+    "recallValue": {
+      "label": "Value of one recall visit",
+      "help": "Average billed amount of a cleaning visit over the last 12 months."
+    },
+    "sessions": {
+      "label": "Sessions",
+      "help": "Completed appointments of this type of treatment."
+    },
+    "avgPerSession": {
+      "label": "Avg per session",
+      "help": "Revenue of this type of treatment divided by its sessions."
+    },
+    "reviews": {
+      "label": "New reviews",
+      "help": "New reviews on Google and ProvenExpert in the month, with the average rating."
+    },
+    "visitsPerPatient": {
+      "label": "Visits per patient",
+      "help": "Completed appointments divided by patients seen."
+    },
+    "value6mShort": {
+      "label": "Revenue per new patient (6 months)",
+      "help": "Usual revenue of a new patient from this district in the first 6 months, calculated from history."
+    }
+  },
+  "data": {
+    "overview": {
+      "revenuePerMonth": "Revenue per month",
+      "byTreatment": "Revenue by treatment",
+      "byTeam": "Revenue by team",
+      "byChannel": "Requests and new patients by channel"
+    },
+    "col": {
+      "treatment": "Treatment",
+      "member": "Team member",
+      "role": "Role",
+      "channel": "Channel",
+      "revenue": "Revenue",
+      "prevRevenue": "Previous month",
+      "appointments": "Appointments",
+      "requests": "Requests",
+      "newPatients": "New patients",
+      "conversion": "Request → patient",
+      "adSpend": "Ad spend",
+      "nextBooked": "Next appointment booked",
+      "lab": "In-house lab",
+      "proposed": "Proposed",
+      "accepted": "Booked",
+      "acceptance": "Acceptance",
+      "open": "Open at month end",
+      "plans": "Plans",
+      "dentist": "Dentist",
+      "planId": "Plan no.",
+      "patient": "Patient",
+      "value": "Value",
+      "created": "Created",
+      "daysOpen": "Days open",
+      "instalments": "Instalments offered",
+      "fast": "Answered within 2 h",
+      "viaWebsite": "via website",
+      "viaGoogle": "via Google",
+      "viaInstagram": "via Instagram",
+      "noSource": "no source",
+      "district": "District",
+      "posts": "Posts",
+      "reach": "Reach",
+      "avgReach": "Avg reach per post",
+      "profileVisits": "Profile visits",
+      "linkClicks": "Link clicks",
+      "messages": "Messages",
+      "postType": "Type of post",
+      "seen": "Seen",
+      "existing": "Existing",
+      "overdue": "Overdue",
+      "lastVisit": "Last visit",
+      "visits": "Visits",
+      "totalBilled": "Total billed",
+      "lastSeenBy": "Last seen by",
+      "slots": "Bookable",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "noShow": "No-show",
+      "neverBooked": "Never booked",
+      "used": "Used",
+      "weekday": "Weekday"
+    },
+    "revenue": {
+      "monthly": "Revenue per month by treatment",
+      "thisMonth": "Revenue by treatment in {{month}}",
+      "payerLab": "Payer and in-house lab per month"
+    },
+    "plans": {
+      "openPerMonth": "Open plans at month end",
+      "monthly": "Plans per month",
+      "byDentist": "Acceptance by dentist in {{month}}",
+      "openList": "Open plans (pseudonymised)"
+    },
+    "marketing": {
+      "requestsPerMonth": "Online requests per month",
+      "channels": "Channels in {{month}}",
+      "monthly": "Requests and new patients per month",
+      "districts": "New patients by district in {{month}}",
+      "igMonthly": "Instagram per month",
+      "igTypes": "Instagram by type of post (6 months to {{month}})"
+    },
+    "patients": {
+      "perMonth": "Patients seen per month",
+      "monthly": "Patients per month",
+      "list": "Patient list (pseudonymised)",
+      "sort": {
+        "lastVisit": "Last visit",
+        "totalBilled": "Total billed",
+        "visits": "Visits"
+      }
+    },
+    "chairs": {
+      "perMonth": "Completed appointments per month",
+      "monthly": "Treatment time per month",
+      "team": "Team in {{month}}",
+      "weekdays": "Weekdays in {{month}}"
+    }
   }
 }
