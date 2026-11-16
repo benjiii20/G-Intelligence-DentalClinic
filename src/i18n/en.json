@@ -261,16 +261,16 @@
       "help": "Accepted plan value divided by the plan value proposed in this month."
     },
     "openPlans": {
-      "label": "Open plans",
-      "help": "Value of all plans that were neither accepted nor declined at the end of the month."
+      "label": "Waiting for an answer",
+      "help": "Value of all plans the patient had neither accepted nor declined by the end of the month."
     },
     "openUnder3": {
-      "label": "Open, under 3 months",
-      "help": "Open plans created less than 3 months ago. Following up is most worthwhile here."
+      "label": "Waiting, under 3 months",
+      "help": "Plans without an answer, created less than 3 months ago. Following up is most worthwhile here."
     },
     "openOver3": {
-      "label": "Open, older than 3 months",
-      "help": "Open plans created more than 3 months ago. These are rarely booked any more."
+      "label": "Waiting, older than 3 months",
+      "help": "Plans without an answer, created more than 3 months ago. These are rarely booked any more."
     },
     "instalments": {
       "label": "Acceptance with instalments",
@@ -433,14 +433,14 @@
       "proposed": "Proposed",
       "accepted": "Booked",
       "acceptance": "Acceptance",
-      "open": "Open at month end",
+      "open": "Waiting at month end",
       "plans": "Plans",
       "dentist": "Dentist",
       "planId": "Plan no.",
       "patient": "Patient",
       "value": "Value",
       "created": "Created",
-      "daysOpen": "Days open",
+      "daysOpen": "Days waiting",
       "instalments": "Instalments offered",
       "fast": "Answered within 2 h",
       "viaWebsite": "via website",
@@ -476,10 +476,10 @@
       "payerLab": "Payer and in-house lab per month"
     },
     "plans": {
-      "openPerMonth": "Open plans at month end",
+      "openPerMonth": "Plans waiting for an answer at month end",
       "monthly": "Plans per month",
       "byDentist": "Acceptance by dentist in {{month}}",
-      "openList": "Open plans (pseudonymised)"
+      "openList": "Plans waiting for an answer (pseudonymised)"
     },
     "marketing": {
       "requestsPerMonth": "Online requests per month",
@@ -522,7 +522,7 @@
     "requests": "{{requests}} online requests came in. {{share}} were answered within 2 hours.",
     "key": {
       "change": "Biggest single change: {{treatment}}",
-      "open": "Open planned treatment",
+      "open": "Planned treatment waiting for an answer",
       "fast": "Requests answered within 2 hours"
     },
     "label": "What mattered in {{month}}"
@@ -557,8 +557,8 @@
     "title": "Where is money being left on the table?",
     "help": "A cautious estimate of what could be recovered each month. Each card states its assumption.",
     "plans": {
-      "title": "Open treatment plans",
-      "text": "{{full}} has been open for less than 3 months. We assume {{share}} of it is booked after a follow-up, spread over {{months}} months."
+      "title": "Plans waiting for an answer",
+      "text": "{{full}} has been waiting for an answer for less than 3 months. We assume {{share}} of it is booked after a follow-up, spread over {{months}} months."
     },
     "requests": {
       "title": "Requests answered too late",
@@ -648,8 +648,8 @@
     "bar": {
       "title": "What became of the plans from the last 12 months?",
       "booked": "Booked",
-      "under3": "Open, under 3 months",
-      "over3": "Open, older than 3 months",
+      "under3": "Waiting, under 3 months",
+      "over3": "Waiting, older than 3 months",
       "closed": "Declined or expired"
     },
     "inst": {
@@ -664,21 +664,22 @@
     },
     "dentist": {
       "title": "Where did acceptance drop?",
-      "row": "{{current}}, after {{previous}} the month before · open: {{open}}",
-      "rowFirst": "{{current}} · open: {{open}}",
-      "absence": "In the same period: away for {{days}} working days.",
-      "none": "Too few plans to say."
+      "row": "Patients accepted {{current}} of the treatment {{staff}} proposed in {{month}}, after {{previous}} in {{prevMonth}}.",
+      "rowFirst": "Patients accepted {{current}} of the treatment {{staff}} proposed in {{month}}.",
+      "absence": "{{staff}} was away for {{days}} working days in {{month}}.",
+      "none": "Too few plans to say.",
+      "waiting": "Still waiting for an answer: {{open}} in {{staff}}'s plans."
     },
     "follow": {
       "title": "Follow-up list for the front desk",
-      "help": "Open plans under 90 days old. Sorted by value times the chance that a follow-up still leads to a booking.",
+      "help": "Plans waiting for an answer, under 90 days old. Sorted by value times the chance that a follow-up still leads to a booking.",
       "step": {
         "offer_instalments": "Offer instalment payment",
         "getting_old": "Friendly follow-up – the plan is getting old",
         "second_talk": "Offer a second talk with the dentist",
         "call_questions": "Call and answer open questions"
       },
-      "empty": "No open plans under 90 days.",
+      "empty": "No plans under 90 days are waiting for an answer.",
       "stepLabel": "Next step"
     },
     "reasons": {
@@ -965,7 +966,7 @@
     "eventLine": "- In the same period: {{event}}",
     "acceptanceLine": "- Plan acceptance: {{current}}, after {{previous}}",
     "revenue_check": "Worth checking: were treatments postponed, or were fewer plans accepted?",
-    "open_plans": "In total, **{{open}}** of planned treatment is not booked yet.\n- Open for less than 3 months: {{under3}}\n- Open for more than 3 months: {{over3}}\n- Accepted in {{month}}: {{acceptance}} (month before: {{previous}})\n- If {{next}} were accepted instead of {{acceptance}}, that would be {{onePercent}} more\nWorth checking: the follow-up list on the “Treatment plans” page.",
+    "open_plans": "In total, **{{open}}** of planned treatment is still waiting for an answer from patients.\n- Less than 3 months old: {{under3}}\n- More than 3 months old: {{over3}}\n- Accepted in {{month}}: {{acceptance}} (month before: {{previous}})\n- If {{next}} were accepted instead of {{acceptance}}, that would be {{onePercent}} more\nWorth checking: the follow-up list on the “Treatment plans” page.",
     "request_speed": "In {{month}}, **{{fast}}** of online requests were answered within 2 hours (month before: {{previous}}).\n- Online requests: {{requests}}\n- Waited more than 2 hours: {{waiting}} requests\n- {{fastConv}} of quickly answered requests became patients, against {{slowConv}} of those answered later\n- Estimated loss: {{missed}} new patients, about {{missedValue}} over 6 months\n- {{weekend}} of late replies were to requests from Friday afternoon or the weekend\nThis is a link, not proof.",
     "waiting": "In {{month}}, **{{waiting}}** of {{requests}} online requests waited more than 2 hours for a reply.\n- Answered within 2 hours: {{fast}}\n- {{weekend}} of late replies were to requests from Friday afternoon or the weekend",
     "overdue": "**{{count}} patients** are overdue for a check-up. If all of them came, that would be about {{value}}.\n- Value of one recall visit: {{recall}}\n- Typical patient value per year: {{perYear}}\n- Next appointment booked (team): {{nextBooked}}",
@@ -993,14 +994,14 @@
     "weekday": "**{{day1}}** has the most free time, with {{free1}} free slots in {{month}} ({{used1}} used).\n- Next: {{day2}} with {{free2}} free slots ({{used2}} used)\n- Overall, {{used}} of treatment time was used\n- Never booked: {{never}} slots",
     "best_month": "The month with the highest revenue was **{{best}}**, at {{bestValue}}.\n- Weakest month: {{worst}}, at {{worstValue}}\n- Average per month: {{average}}",
     "dentist_acceptance": "**{{lowest}}** has the lowest plan acceptance in {{month}}, at {{lowestPct}}.\n{{rows}}\nWith only a few plans, the rate swings a lot.",
-    "dentistLine": "- {{dentist}}: {{pct}} (month before: {{previous}}), open: {{open}}",
+    "dentistLine": "- {{dentist}}: {{pct}} (month before: {{previous}}), waiting for an answer: {{open}}",
     "acceptance_period": "From {{from}} to {{to}}, plan acceptance was **{{acceptance}}**.\n- Proposed: {{proposed}}\n- Booked: {{booked}}\n- Plans: {{plans}}",
     "rebooking": "Across the team, **{{team}}** of patients leave with a next appointment.\n{{rows}}\nThis is a booking habit, not a measure of clinical quality.",
     "memberLine": "- {{member}}: {{pct}} over {{appointments}} appointments",
     "new_patients": "**{{count}} new patients** came in {{month}} (month before: {{previous}}).\n- Patients seen in total: {{seen}}\n- A new patient brings about {{value}} in the first 6 months",
     "lab": "In {{month}}, **{{lab}}** of revenue came from the in-house lab.\n- Total revenue: {{revenue}}\n- Statutory: {{gkv}}, private: {{pkv}}, self-pay: {{self}}",
     "not_in_data": "That is not in the data. Patient satisfaction and competitors are not recorded.\n- What is available: new reviews on Google and ProvenExpert\n- Measuring satisfaction would need a short survey after the visit",
-    "unknown": "I have no fixed answer for that. With the AI connected I can answer more freely. These are questions I can always answer:\n- Why did revenue change?\n- How much planned treatment is open?\n- How quickly do we answer requests?\n- How many patients are overdue?\n- What do missed appointments cost?\n- Do instalments help? Where do new patients come from? What does Instagram bring?\n- What should we focus on?"
+    "unknown": "I have no fixed answer for that. With the AI connected I can answer more freely. These are questions I can always answer:\n- Why did revenue change?\n- How much planned treatment is still waiting for an answer?\n- How quickly do we answer requests?\n- How many patients are overdue?\n- What do missed appointments cost?\n- Do instalments help? Where do new patients come from? What does Instagram bring?\n- What should we focus on?"
   },
   "import": {
     "title": "Upload your own data",
@@ -1079,7 +1080,7 @@
       "skipped_no_patient": "{{count}} rows without a patient number are skipped.",
       "skipped_no_value": "{{count}} rows without an amount or figure are skipped.",
       "no_amount": "{{count}} completed appointments without an amount. They are imported at €0 and marked.",
-      "unknown_status": "{{count}} rows with an unknown status. Appointments are imported as completed, plans as open, and marked.",
+      "unknown_status": "{{count}} rows with an unknown status. Appointments are imported as completed, plans as waiting for an answer, and marked.",
       "unknown_treatment": "{{count}} rows with an unknown treatment. They are imported under “Check-ups, fillings & CMD” (plans: “Crowns, bridges & in-house lab”) and marked.",
       "duplicate_rows": "{{count}} rows look like duplicates. They are imported and marked.",
       "duplicate_patients": "{{count}} patient numbers appear twice. The first entry counts.",

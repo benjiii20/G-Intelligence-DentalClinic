@@ -499,15 +499,16 @@ export function PlansInsights() {
                   <li key={r.dentistId} className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-3">
                     <div className="min-w-0">
                       <p className="text-sm font-semibold">{names.staff(r.dentistId)}</p>
-                      <p className="text-sm leading-relaxed text-muted">
+                      <p className="text-sm leading-relaxed text-ink">
                         {r.acceptancePct === null
                           ? t('plans.dentist.none')
                           : r.previousAcceptancePct === null
-                            ? t('plans.dentist.rowFirst', { current: f.pct(r.acceptancePct), open: f.eur(r.open) })
-                            : t('plans.dentist.row', { current: f.pct(r.acceptancePct), previous: f.pct(r.previousAcceptancePct), open: f.eur(r.open) })}
+                            ? t('plans.dentist.rowFirst', { staff: names.staff(r.dentistId), current: f.pct(r.acceptancePct), month: f.monthName(month) })
+                            : t('plans.dentist.row', { staff: names.staff(r.dentistId), current: f.pct(r.acceptancePct), month: f.monthName(month), previous: f.pct(r.previousAcceptancePct), prevMonth: f.monthName(prevMonth) })}
                         {r.plans < 10 && r.acceptancePct !== null && <span className="ml-2 text-xs text-opp">{t('common.fewCases')}</span>}
                       </p>
-                      {days > 0 && <p className="text-sm leading-relaxed text-ink">{t('plans.dentist.absence', { days: f.num(days) })}</p>}
+                      <p className="text-sm leading-relaxed text-muted">{t('plans.dentist.waiting', { open: f.eur(r.open), staff: names.staff(r.dentistId) })}</p>
+                      {days > 0 && <p className="text-sm leading-relaxed text-ink">{t('plans.dentist.absence', { staff: names.staff(r.dentistId), days: f.num(days), month: f.monthName(month) })}</p>}
                     </div>
                     {diff !== null && <Delta value={Math.round(diff)} text={f.pctFromTo(r.previousAcceptancePct, r.acceptancePct)} className="text-sm" />}
                   </li>

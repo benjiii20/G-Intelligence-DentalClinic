@@ -261,16 +261,16 @@
       "help": "Angenommener Planwert geteilt durch den vorgeschlagenen Planwert dieses Monats."
     },
     "openPlans": {
-      "label": "Offene Pläne",
-      "help": "Wert aller Pläne, die am Monatsende weder angenommen noch abgelehnt waren."
+      "label": "Noch ohne Antwort",
+      "help": "Wert aller Pläne, zu denen der Patient am Monatsende weder Ja noch Nein gesagt hatte."
     },
     "openUnder3": {
-      "label": "Offen, jünger als 3 Monate",
-      "help": "Offene Pläne, die vor weniger als 3 Monaten erstellt wurden. Hier lohnt sich Nachfassen am meisten."
+      "label": "Ohne Antwort, jünger als 3 Monate",
+      "help": "Pläne ohne Antwort, die vor weniger als 3 Monaten erstellt wurden. Hier lohnt sich Nachfragen am meisten."
     },
     "openOver3": {
-      "label": "Offen, älter als 3 Monate",
-      "help": "Offene Pläne, die vor mehr als 3 Monaten erstellt wurden. Sie werden nur noch selten gebucht."
+      "label": "Ohne Antwort, älter als 3 Monate",
+      "help": "Pläne ohne Antwort, die vor mehr als 3 Monaten erstellt wurden. Sie werden nur noch selten gebucht."
     },
     "instalments": {
       "label": "Annahme mit Ratenzahlung",
@@ -433,14 +433,14 @@
       "proposed": "Vorgeschlagen",
       "accepted": "Gebucht",
       "acceptance": "Annahmequote",
-      "open": "Offen am Monatsende",
+      "open": "Ohne Antwort am Monatsende",
       "plans": "Pläne",
       "dentist": "Behandler",
       "planId": "Plan-Nr.",
       "patient": "Patient",
       "value": "Wert",
       "created": "Erstellt",
-      "daysOpen": "Tage offen",
+      "daysOpen": "Tage ohne Antwort",
       "instalments": "Ratenzahlung angeboten",
       "fast": "In 2 Std. beantwortet",
       "viaWebsite": "über Website",
@@ -476,10 +476,10 @@
       "payerLab": "Kostenträger und Eigenlabor pro Monat"
     },
     "plans": {
-      "openPerMonth": "Offene Pläne am Monatsende",
+      "openPerMonth": "Pläne ohne Antwort am Monatsende",
       "monthly": "Pläne pro Monat",
       "byDentist": "Annahmequote nach Behandler im {{month}}",
-      "openList": "Offene Pläne (pseudonymisiert)"
+      "openList": "Pläne ohne Antwort (pseudonymisiert)"
     },
     "marketing": {
       "requestsPerMonth": "Online-Anfragen pro Monat",
@@ -522,7 +522,7 @@
     "requests": "Es kamen {{requests}} Online-Anfragen. {{share}} wurden in 2 Stunden beantwortet.",
     "key": {
       "change": "Größte Einzelveränderung: {{treatment}}",
-      "open": "Offene geplante Behandlung",
+      "open": "Geplante Behandlung ohne Antwort",
       "fast": "Anfragen in 2 Stunden beantwortet"
     },
     "label": "Das Wichtigste im {{month}}"
@@ -557,8 +557,8 @@
     "title": "Wo bleibt Geld liegen?",
     "help": "Vorsichtige Schätzung, was sich pro Monat zurückholen ließe. Die Annahmen stehen in jeder Karte.",
     "plans": {
-      "title": "Offene Behandlungspläne",
-      "text": "{{full}} sind seit weniger als 3 Monaten offen. Gerechnet ist, dass {{share}} davon nach einer Nachfrage gebucht werden, verteilt auf {{months}} Monate."
+      "title": "Pläne ohne Antwort",
+      "text": "{{full}} warten seit weniger als 3 Monaten auf eine Antwort. Gerechnet ist, dass {{share}} davon nach einer Nachfrage gebucht werden, verteilt auf {{months}} Monate."
     },
     "requests": {
       "title": "Zu spät beantwortete Anfragen",
@@ -648,8 +648,8 @@
     "bar": {
       "title": "Was ist aus den Plänen der letzten 12 Monate geworden?",
       "booked": "Gebucht",
-      "under3": "Offen, jünger als 3 Monate",
-      "over3": "Offen, älter als 3 Monate",
+      "under3": "Ohne Antwort, jünger als 3 Monate",
+      "over3": "Ohne Antwort, älter als 3 Monate",
       "closed": "Abgelehnt oder abgelaufen"
     },
     "inst": {
@@ -664,21 +664,22 @@
     },
     "dentist": {
       "title": "Wo ist die Annahme gesunken?",
-      "row": "{{current}} nach {{previous}} im Vormonat · offen: {{open}}",
-      "rowFirst": "{{current}} · offen: {{open}}",
-      "absence": "Im gleichen Zeitraum: {{days}} Arbeitstage abwesend.",
-      "none": "Zu wenige Pläne für eine Aussage."
+      "row": "Patienten haben {{current}} der Behandlung angenommen, die {{staff}} im {{month}} vorgeschlagen hat. Im {{prevMonth}} waren es {{previous}}.",
+      "rowFirst": "Patienten haben {{current}} der Behandlung angenommen, die {{staff}} im {{month}} vorgeschlagen hat.",
+      "absence": "{{staff}} war im {{month}} {{days}} Arbeitstage abwesend.",
+      "none": "Zu wenige Pläne für eine Aussage.",
+      "waiting": "Noch ohne Antwort: {{open}} in Plänen von {{staff}}."
     },
     "follow": {
       "title": "Nachfass-Liste für den Empfang",
-      "help": "Offene Pläne, jünger als 90 Tage. Sortiert nach Wert mal Chance, dass eine Nachfrage noch zur Buchung führt.",
+      "help": "Pläne ohne Antwort, jünger als 90 Tage. Sortiert nach Wert mal Chance, dass eine Nachfrage noch zur Buchung führt.",
       "step": {
         "offer_instalments": "Ratenzahlung anbieten",
         "getting_old": "Freundlich nachfragen – der Plan wird alt",
         "second_talk": "Zweites Gespräch mit dem Behandler anbieten",
         "call_questions": "Anrufen und offene Fragen klären"
       },
-      "empty": "Keine offenen Pläne unter 90 Tagen.",
+      "empty": "Keine Pläne unter 90 Tagen, die auf eine Antwort warten.",
       "stepLabel": "Nächster Schritt"
     },
     "reasons": {
@@ -965,7 +966,7 @@
     "eventLine": "- Im gleichen Zeitraum: {{event}}",
     "acceptanceLine": "- Annahmequote der Behandlungspläne: {{current}} nach {{previous}}",
     "revenue_check": "Prüfenswert: Wurden Behandlungen verschoben, oder wurden weniger Pläne angenommen?",
-    "open_plans": "Insgesamt sind **{{open}}** geplante Behandlung noch nicht gebucht.\n- Offen seit weniger als 3 Monaten: {{under3}}\n- Offen seit mehr als 3 Monaten: {{over3}}\n- Angenommen im {{month}}: {{acceptance}} (Vormonat: {{previous}})\n- Würden {{next}} statt {{acceptance}} angenommen, wären das {{onePercent}} mehr\nPrüfenswert: die Nachfass-Liste auf der Seite „Behandlungspläne“.",
+    "open_plans": "Insgesamt warten **{{open}}** geplante Behandlung noch auf eine Antwort der Patienten.\n- Davon jünger als 3 Monate: {{under3}}\n- Davon älter als 3 Monate: {{over3}}\n- Angenommen im {{month}}: {{acceptance}} (Vormonat: {{previous}})\n- Würden {{next}} statt {{acceptance}} angenommen, wären das {{onePercent}} mehr\nPrüfenswert: die Nachfass-Liste auf der Seite „Behandlungspläne“.",
     "request_speed": "Im {{month}} wurden **{{fast}}** der Online-Anfragen in 2 Stunden beantwortet (Vormonat: {{previous}}).\n- Online-Anfragen: {{requests}}\n- Länger als 2 Stunden gewartet: {{waiting}} Anfragen\n- Von den schnell beantworteten Anfragen wurden {{fastConv}} zu Patienten, von den später beantworteten {{slowConv}}\n- Geschätzt entgangen: {{missed}} Neupatienten, etwa {{missedValue}} in 6 Monaten\n- {{weekend}} der späten Antworten betrafen Anfragen vom Freitagnachmittag oder Wochenende\nDas ist ein Zusammenhang, kein Beweis.",
     "waiting": "Im {{month}} warteten **{{waiting}}** von {{requests}} Online-Anfragen länger als 2 Stunden auf eine Antwort.\n- In 2 Stunden beantwortet: {{fast}}\n- {{weekend}} der späten Antworten betrafen Anfragen vom Freitagnachmittag oder Wochenende",
     "overdue": "**{{count}} Patienten** sind für die Kontrolle überfällig. Kämen alle, wären das etwa {{value}}.\n- Wert eines Recall-Termins: {{recall}}\n- Üblicher Patientenwert pro Jahr: {{perYear}}\n- Nächster Termin gebucht (Team): {{nextBooked}}",
@@ -993,14 +994,14 @@
     "weekday": "Die meiste freie Zeit hat der **{{day1}}** mit {{free1}} freien Terminen im {{month}} ({{used1}} genutzt).\n- Danach: {{day2}} mit {{free2}} freien Terminen ({{used2}} genutzt)\n- Insgesamt wurden {{used}} der Behandlungszeit genutzt\n- Nie gebucht: {{never}} Termine",
     "best_month": "Der umsatzstärkste Monat war **{{best}}** mit {{bestValue}}.\n- Schwächster Monat: {{worst}} mit {{worstValue}}\n- Durchschnitt pro Monat: {{average}}",
     "dentist_acceptance": "Die niedrigste Annahmequote im {{month}} hat **{{lowest}}** mit {{lowestPct}}.\n{{rows}}\nBei wenigen Plänen schwankt die Quote stark.",
-    "dentistLine": "- {{dentist}}: {{pct}} (Vormonat: {{previous}}), offen: {{open}}",
+    "dentistLine": "- {{dentist}}: {{pct}} (Vormonat: {{previous}}), ohne Antwort: {{open}}",
     "acceptance_period": "Von {{from}} bis {{to}} lag die Annahmequote bei **{{acceptance}}**.\n- Vorgeschlagen: {{proposed}}\n- Gebucht: {{booked}}\n- Pläne: {{plans}}",
     "rebooking": "Im Team gehen **{{team}}** der Patienten mit einem nächsten Termin nach Hause.\n{{rows}}\nDas ist eine Buchungsgewohnheit, kein Maß für die Qualität der Behandlung.",
     "memberLine": "- {{member}}: {{pct}} bei {{appointments}} Terminen",
     "new_patients": "Im {{month}} kamen **{{count}} Neupatienten** (Vormonat: {{previous}}).\n- Behandelte Patienten insgesamt: {{seen}}\n- Ein Neupatient bringt in den ersten 6 Monaten etwa {{value}}",
     "lab": "Im {{month}} stammen **{{lab}}** des Umsatzes aus dem Eigenlabor.\n- Gesamtumsatz: {{revenue}}\n- Gesetzlich: {{gkv}}, privat: {{pkv}}, Selbstzahler: {{self}}",
     "not_in_data": "Das steht nicht in den Daten. Patientenzufriedenheit und Wettbewerber werden nicht erfasst.\n- Vorhanden sind neue Bewertungen auf Google und ProvenExpert\n- Für Zufriedenheit bräuchte es eine kurze Befragung nach dem Termin",
-    "unknown": "Dazu habe ich keine feste Antwort. Mit verbundener KI kann ich freier antworten. Diese Fragen kann ich immer beantworten:\n- Warum hat sich der Umsatz verändert?\n- Wie viel geplante Behandlung ist offen?\n- Wie schnell beantworten wir Anfragen?\n- Wie viele Patienten sind überfällig?\n- Was kosten Terminausfälle?\n- Hilft Ratenzahlung? Woher kommen Neupatienten? Was bringt Instagram?\n- Worauf sollten wir uns konzentrieren?"
+    "unknown": "Dazu habe ich keine feste Antwort. Mit verbundener KI kann ich freier antworten. Diese Fragen kann ich immer beantworten:\n- Warum hat sich der Umsatz verändert?\n- Wie viel geplante Behandlung wartet noch auf eine Antwort?\n- Wie schnell beantworten wir Anfragen?\n- Wie viele Patienten sind überfällig?\n- Was kosten Terminausfälle?\n- Hilft Ratenzahlung? Woher kommen Neupatienten? Was bringt Instagram?\n- Worauf sollten wir uns konzentrieren?"
   },
   "import": {
     "title": "Eigene Daten hochladen",
@@ -1079,7 +1080,7 @@
       "skipped_no_patient": "{{count}} Zeilen ohne Patientennummer werden übersprungen.",
       "skipped_no_value": "{{count}} Zeilen ohne Betrag oder Zahl werden übersprungen.",
       "no_amount": "{{count}} erledigte Termine ohne Betrag. Sie werden mit 0 € übernommen und markiert.",
-      "unknown_status": "{{count}} Zeilen mit unbekanntem Status. Termine werden als erledigt, Pläne als offen übernommen und markiert.",
+      "unknown_status": "{{count}} Zeilen mit unbekanntem Status. Termine werden als erledigt, Pläne als „ohne Antwort“ übernommen und markiert.",
       "unknown_treatment": "{{count}} Zeilen mit unbekannter Leistung. Sie werden unter „Kontrolle, Füllungen & CMD“ (Pläne: „Kronen, Brücken & Eigenlabor“) übernommen und markiert.",
       "duplicate_rows": "{{count}} Zeilen sehen doppelt aus. Sie werden übernommen und markiert.",
       "duplicate_patients": "{{count}} Patientennummern kommen doppelt vor. Der erste Eintrag zählt.",
