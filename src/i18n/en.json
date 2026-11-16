@@ -7,7 +7,6 @@
     "closeMenu": "Close menu"
   },
   "banner": {
-    "demo": "Preview for DentalFirst: this is how G-Intelligence would look with your real practice data. All figures are invented sample data; team members and patients are anonymised.",
     "real": "Your real data – processed only in this browser, nothing is uploaded.",
     "clear": "Delete data",
     "clearConfirm": "Delete all imported data from this browser?"
@@ -27,8 +26,6 @@
       "next": "Next month"
     },
     "weekly": "Weekly summary",
-    "synced": "Last synced: {{when}} · {{sources}}",
-    "syncedNone": "No data source connected",
     "dataSuffix": "{{page}} · all figures"
   },
   "nav": {

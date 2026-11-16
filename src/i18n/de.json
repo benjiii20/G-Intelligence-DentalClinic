@@ -7,7 +7,6 @@
     "closeMenu": "Menü schließen"
   },
   "banner": {
-    "demo": "Vorschau für DentalFirst: So würde G-Intelligence mit Ihren echten Praxisdaten aussehen. Alle Zahlen sind erfundene Beispieldaten; Teammitglieder und Patienten sind anonymisiert.",
     "real": "Ihre echten Daten – nur in diesem Browser verarbeitet, nichts wird hochgeladen.",
     "clear": "Daten löschen",
     "clearConfirm": "Alle importierten Daten aus diesem Browser löschen?"
@@ -27,8 +26,6 @@
       "next": "Nächster Monat"
     },
     "weekly": "Wochenbericht",
-    "synced": "Zuletzt abgeglichen: {{when}} · {{sources}}",
-    "syncedNone": "Keine Datenquelle verbunden",
     "dataSuffix": "{{page}} · alle Zahlen"
   },
   "nav": {

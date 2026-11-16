@@ -16,9 +16,8 @@ import {
 } from 'lucide-react';
 import { useState, type ReactNode } from 'react';
 import { addMonths, monthsBetween } from '../data/dates';
-import { SOURCE_KEYS } from '../data/types';
 import { useT } from '../i18n';
-import { PAGES, useData, useStore, type PageKey } from '../state/store';
+import { PAGES, useStore, type PageKey } from '../state/store';
 import { cx } from './ui';
 
 const ICONS: Record<PageKey, LucideIcon> = {
@@ -36,21 +35,20 @@ export function Banner() {
   const { t } = useT();
   const mode = useStore((s) => s.base.mode);
   const clearData = useStore((s) => s.clearData);
-  const real = mode === 'real';
+  // only the practice-check banner is shown: it holds the "delete data" button
+  if (mode !== 'real') return null;
   return (
-    <div role="status" className={cx('no-print flex flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 py-2 text-center text-[13px] leading-snug', real ? 'bg-[#DDEFE6] text-[#124A33]' : 'bg-[#FBEEDC] text-[#5F3209]')}>
-      <span>{t(real ? 'banner.real' : 'banner.demo')}</span>
-      {real && (
-        <button
-          type="button"
-          className="btn min-h-[36px] border-[#124A33]/30 bg-white/70 py-1"
-          onClick={() => {
-            if (window.confirm(t('banner.clearConfirm'))) clearData();
-          }}
-        >
-          {t('banner.clear')}
-        </button>
-      )}
+    <div role="status" className="no-print flex flex-wrap items-center justify-center gap-x-4 gap-y-2 bg-[#DDEFE6] px-4 py-2 text-center text-[13px] leading-snug text-[#124A33]">
+      <span>{t('banner.real')}</span>
+      <button
+        type="button"
+        className="btn min-h-[36px] border-[#124A33]/30 bg-white/70 py-1"
+        onClick={() => {
+          if (window.confirm(t('banner.clearConfirm'))) clearData();
+        }}
+      >
+        {t('banner.clear')}
+      </button>
     </div>
   );
 }
@@ -144,16 +142,6 @@ function Brand() {
   );
 }
 
-function SyncLine() {
-  const { t, f, names } = useT();
-  const data = useData();
-  const lastSync = useStore((s) => s.lastSync);
-  const on = SOURCE_KEYS.filter((k) => data.sources[k]);
-  if (!on.length) return <p className="text-xs text-muted">{t('header.syncedNone')}</p>;
-  const latest = on.map((k) => lastSync[k]).sort().pop()!;
-  return <p className="text-xs leading-relaxed text-muted">{t('header.synced', { when: f.dateTime(latest), sources: on.map((k) => names.source(k)).join(', ') })}</p>;
-}
-
 export function Layout({ children }: { children: ReactNode }) {
   const { t, f } = useT();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -224,9 +212,6 @@ export function Layout({ children }: { children: ReactNode }) {
                   ]}
                 />
               </div>
-            </div>
-            <div className="mt-2">
-              <SyncLine />
             </div>
           </header>
           <main className="px-4 py-5 sm:px-6">{children}</main>
