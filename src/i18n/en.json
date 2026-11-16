@@ -766,10 +766,12 @@
     "value": {
       "recall": "One recall visit",
       "lost": "When a new patient never returns",
-      "lostHelp": "The usual revenue of a new patient over 6 months minus the revenue of the first visit.",
-      "perMonth": "a month",
-      "onePerHundred": "If 1 more patient in 100 leaves with a next appointment",
-      "onePerHundredHelp": "Calculated with this month's appointments and the value of a recall visit."
+      "lostHelp": "A new patient usually brings about {{npv}} in their first 6 months. The first visit alone brings about {{first}}. If they never come back, about {{lost}} is lost.",
+      "onePerHundred": "1 more patient in 100 rebooked",
+      "onePerHundredHelp": "In {{month}}, {{rate}} of patients left with their next appointment booked. At {{next}}, about {{extra}} more patients a month would have one. Each of those visits brings about {{recall}}, the price of an average cleaning. That makes about {{value}} a month.",
+      "onePerHundredSub": "about {{extra}} patients × {{recall}} a month",
+      "onePerHundredHelpNoRate": "If 1 more patient in 100 books their next appointment before leaving, that is about {{extra}} more patients a month. Each of those visits brings about {{recall}}. That makes about {{value}} a month.",
+      "lostSub": "{{npv}} over 6 months minus {{first}} at the first visit"
     },
     "overdue": {
       "title": "Who is overdue, and what is it worth?",

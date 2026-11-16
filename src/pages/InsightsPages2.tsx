@@ -406,8 +406,25 @@ export function PatientsInsights() {
       <TileGrid cols={4}>
         <Tile label={t('m.patientValueYear.label')} help={t('m.patientValueYear.help')} value={perYear.value === null ? t('common.notEnough') : f.eur(perYear.value)} />
         <Tile label={t('pat.value.recall')} help={t('m.recallValue.help')} value={recall.value === null ? t('common.notEnough') : f.eur(recall.value)} />
-        <Tile label={t('pat.value.onePerHundred')} help={t('pat.value.onePerHundredHelp')} value={appts !== null && recall.value !== null ? f.eur((appts / 100) * recall.value) : f.dash} sub={t('pat.value.perMonth')} tone="opp" />
-        <Tile label={t('pat.value.lost')} help={t('pat.value.lostHelp')} value={npv !== null && first !== null ? f.eur(Math.max(0, npv - first)) : f.dash} tone="loss" />
+        {(() => {
+          // rounded inputs, so the numbers in the explanation multiply out to the number on the tile
+          const extra = appts !== null ? Math.max(1, Math.round(appts / 100)) : null;
+          const visit = recall.value !== null ? Math.round(recall.value) : null;
+          const worth = extra !== null && visit !== null ? extra * visit : null;
+          const vars = { month: f.monthName(month), extra: f.num(extra), recall: f.eur(visit), value: f.eur(worth) };
+          const help =
+            team !== null
+              ? t('pat.value.onePerHundredHelp', { ...vars, rate: f.pct(Math.round(team)), next: f.pct(Math.round(team) + 1) })
+              : t('pat.value.onePerHundredHelpNoRate', vars);
+          return <Tile label={t('pat.value.onePerHundred')} help={help} value={worth === null ? f.dash : f.eur(worth)} sub={worth === null ? undefined : t('pat.value.onePerHundredSub', vars)} tone="opp" />;
+        })()}
+        {(() => {
+          const gain = npv !== null ? Math.round(npv) : null;
+          const firstVisit = first !== null ? Math.round(first) : null;
+          const lost = gain !== null && firstVisit !== null ? Math.max(0, gain - firstVisit) : null;
+          const vars = { npv: f.eur(gain), first: f.eur(firstVisit), lost: f.eur(lost) };
+          return <Tile label={t('pat.value.lost')} help={t('pat.value.lostHelp', vars)} value={lost === null ? f.dash : f.eur(lost)} sub={lost === null ? undefined : t('pat.value.lostSub', vars)} tone="loss" />;
+        })()}
       </TileGrid>
 
       <Card title={t('pat.overdue.title')} help={t('m.overdue.help')}>

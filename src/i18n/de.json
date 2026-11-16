@@ -766,10 +766,12 @@
     "value": {
       "recall": "Ein Recall-Termin",
       "lost": "Wenn ein Neupatient nicht wiederkommt",
-      "lostHelp": "Üblicher Umsatz eines Neupatienten in 6 Monaten minus der Umsatz des ersten Termins.",
-      "perMonth": "pro Monat",
-      "onePerHundred": "Wenn von 100 Patienten einer mehr mit Termin geht",
-      "onePerHundredHelp": "Gerechnet mit den Terminen dieses Monats und dem Wert eines Recall-Termins."
+      "lostHelp": "Ein neuer Patient bringt in seinen ersten 6 Monaten üblicherweise etwa {{npv}}. Der erste Termin allein bringt etwa {{first}}. Kommt er danach nicht wieder, fehlen etwa {{lost}}.",
+      "onePerHundred": "1 Patient mehr von 100 mit Folgetermin",
+      "onePerHundredHelp": "Im {{month}} gingen {{rate}} der Patienten mit dem nächsten Termin nach Hause. Bei {{next}} wären es etwa {{extra}} Patienten mehr im Monat. Jeder dieser Termine bringt etwa {{recall}}, so viel wie eine durchschnittliche Zahnreinigung. Zusammen sind das etwa {{value}} pro Monat.",
+      "onePerHundredSub": "etwa {{extra}} Patienten × {{recall}} pro Monat",
+      "onePerHundredHelpNoRate": "Bucht von 100 Patienten einer mehr gleich den nächsten Termin, sind das etwa {{extra}} Patienten mehr im Monat. Jeder dieser Termine bringt etwa {{recall}}. Zusammen sind das etwa {{value}} pro Monat.",
+      "lostSub": "{{npv}} in 6 Monaten minus {{first}} beim ersten Termin"
     },
     "overdue": {
       "title": "Wer ist überfällig – und was ist das wert?",
