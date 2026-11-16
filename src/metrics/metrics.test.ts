@@ -212,7 +212,7 @@ describe('treatment plans', () => {
     expect(s.proposed).toBe(4500);
     expect(s.accepted).toBe(1000);
     expect(s.acceptancePct).toBeCloseTo((1000 / 4500) * 100, 6);
-    expect(s.onePoint).toBe(45);
+    expect(s.onePercent).toBe(45);
   });
   it('open plans split under / over 3 months, as of the period end', () => {
     const o = openPlans(d, FEB).value!;

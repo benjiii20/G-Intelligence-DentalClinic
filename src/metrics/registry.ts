@@ -236,7 +236,7 @@ const RUN: Record<ToolName, RegisteredTool['run']> = {
       open_eur: r0(open.total),
       open_under_3_months_eur: r0(open.under3),
       open_older_than_3_months_eur: r0(open.over3),
-      value_of_one_acceptance_point_eur: r0(s.onePoint),
+      value_if_acceptance_were_1_percent_higher_eur: r0(s.onePercent),
       by_dentist: (acceptanceByDentist(data, filter, prev).value ?? []).map((d) => ({
         dentist: ctx.staffName(d.dentistId),
         plans: d.plans,

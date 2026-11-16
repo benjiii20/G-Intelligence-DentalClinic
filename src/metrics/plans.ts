@@ -23,8 +23,8 @@ export interface PlanSummary {
   acceptancePct: number | null;
   count: number;
   acceptedCount: number;
-  /** value of one additional point of acceptance */
-  onePoint: number;
+  /** what 1 % more of the proposed value being accepted is worth (e.g. 55 % instead of 54 %) */
+  onePercent: number;
 }
 
 /** Value of plans created in the period; acceptance = accepted value ÷ proposed value. */
@@ -41,7 +41,7 @@ export function planSummary(data: Dataset, f: Filter): MetricResult<PlanSummary>
       acceptancePct: proposed > 0 ? pct(accepted, proposed) : null,
       count: list.length,
       acceptedCount: acc.length,
-      onePoint: proposed / 100,
+      onePercent: proposed / 100,
     },
     'eur',
     list.length,

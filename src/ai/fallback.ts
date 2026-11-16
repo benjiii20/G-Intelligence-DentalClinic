@@ -181,6 +181,7 @@ export function renderFallback(key: FallbackKey, data: Dataset, month: string, l
       const p = run('get_treatment_plans');
       const miss = missing(p);
       if (miss) return done(miss);
+      if (typeof p.acceptance_pct === 'number') toolNumbers.push(p.acceptance_pct + 1);
       return done(
         t('fb.open_plans', {
           open: eur(p.open_eur),
@@ -189,7 +190,8 @@ export function renderFallback(key: FallbackKey, data: Dataset, month: string, l
           month: M,
           acceptance: pct(p.acceptance_pct),
           previous: pct(p.previous_acceptance_pct),
-          onePoint: eur(p.value_of_one_acceptance_point_eur),
+          next: typeof p.acceptance_pct === 'number' ? pct(p.acceptance_pct + 1) : t('fb.na'),
+          onePercent: eur(p.value_if_acceptance_were_1_percent_higher_eur),
         }),
       );
     }

@@ -13,8 +13,8 @@ export interface Fmt {
   numSigned: (v: number | null | undefined, digits?: number) => string;
   /** value is already in percent (46 -> 46 %) */
   pct: (v: number | null | undefined, digits?: number) => string;
-  /** percentage points with sign */
-  points: (v: number | null | undefined) => string;
+  /** a percentage change written out: "65 % → 54 %" */
+  pctFromTo: (from: number | null | undefined, to: number | null | undefined) => string;
   pctSigned: (v: number | null | undefined, digits?: number) => string;
   /** Oktober 2026 / October 2026 */
   month: (m: string) => string;
@@ -60,12 +60,7 @@ export function makeFmt(lang: Lang): Fmt {
     numSigned: (v, digits = 0) => (v == null || !isFinite(v) ? dash : sign(v) + num(v, digits)),
     pct,
     pctSigned: (v, digits = 0) => (v == null || !isFinite(v) ? dash : sign(v) + pct(v, digits)),
-    points: (v) => {
-      if (v == null || !isFinite(v)) return dash;
-      const r = Math.round(v);
-      const unit = lang === 'de' ? (Math.abs(r) === 1 ? 'Punkt' : 'Punkte') : Math.abs(r) === 1 ? 'point' : 'points';
-      return `${sign(r)}${num(r)} ${unit}`;
-    },
+    pctFromTo: (from, to) => `${pct(from)} → ${pct(to)}`,
     month: (m) => new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(asUtc(m)),
     monthShort: (m) => new Intl.DateTimeFormat(locale, { month: 'short', year: '2-digit', timeZone: 'UTC' }).format(asUtc(m)),
     monthName: (m) => new Intl.DateTimeFormat(locale, { month: 'long', timeZone: 'UTC' }).format(asUtc(m)),

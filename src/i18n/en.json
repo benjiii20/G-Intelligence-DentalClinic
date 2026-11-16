@@ -206,7 +206,10 @@
     "rowsShown": "{{shown}} of {{total}} shown",
     "events": "Events in the period",
     "days_one": "{{n}} day",
-    "days_other": "{{n}} days"
+    "days_other": "{{n}} days",
+    "downFrom": "down from {{value}} in {{month}}",
+    "upFrom": "up from {{value}} in {{month}}",
+    "sameAs": "same as in {{month}}"
   },
   "m": {
     "revenue": {
@@ -522,7 +525,7 @@
       "open": "Open planned treatment",
       "fast": "Requests answered within 2 hours"
     },
-    "label": "The main points for {{month}}"
+    "label": "What mattered in {{month}}"
   },
   "bridge": {
     "title": "Why did revenue change?",
@@ -574,7 +577,7 @@
   },
   "top": {
     "title": "What moved the numbers most?",
-    "note": "These items overlap. They cannot be added up.",
+    "note": "These changes overlap. They cannot be added up.",
     "kind": {
       "treatment": "Treatment",
       "staff": "Team",
@@ -649,16 +652,12 @@
       "over3": "Open, older than 3 months",
       "closed": "Declined or expired"
     },
-    "onePoint": {
-      "label": "What 1 more percentage point is worth:",
-      "text": "If patients said yes to 1 percentage point more of this month's plans, that would be {{value}} more booked treatment."
-    },
     "inst": {
       "title": "Does offering instalments help?",
       "with": "Accepted with an offer",
       "without": "Accepted without an offer",
       "sample": "{{n}} plans",
-      "text": "Plans with an offer were accepted {{diff}} more often. But it was offered for only {{share}} of plans.",
+      "text": "With an offer, {{with}} of plans were accepted. Without one, {{without}}. But it was offered for only {{share}} of plans.",
       "textNoDiff": "Plans were accepted about equally often with and without an offer.",
       "period": "Period: 6 months to {{month}}. Only plans where the offer is recorded are counted.",
       "check": "The data cannot show whether instalments are the reason. It is worth a try: offer them with every larger plan."
@@ -695,7 +694,11 @@
     },
     "whatIs": "A treatment plan (in German: HKP) is the cost estimate that the patient accepts or declines before treatment starts.",
     "answerOpen": "Plans worth {{open}} are still waiting for a yes or no, from all months together.",
-    "answerFresh": "{{under3}} of that is less than 3 months old. These are most worth a follow-up call."
+    "answerFresh": "{{under3}} of that is less than 3 months old. These are most worth a follow-up call.",
+    "onePercent": {
+      "label": "What a small improvement is worth:",
+      "text": "If {{next}} of this month's plans were accepted instead of {{current}}, that would be {{value}} more booked treatment."
+    }
   },
   "mkt": {
     "answer": {
@@ -761,11 +764,11 @@
     "answerSub": "{{seen}} patients came to the practice in {{month}}, {{fresh}} of them new.",
     "value": {
       "recall": "One recall visit",
-      "onePoint": "+1 point “next appointment booked”",
-      "onePointHelp": "One more point means one more patient in 100 leaves with an appointment. Calculated with this month's appointments and the value of a recall visit.",
       "lost": "When a new patient never returns",
       "lostHelp": "The usual revenue of a new patient over 6 months minus the revenue of the first visit.",
-      "perMonth": "a month"
+      "perMonth": "a month",
+      "onePerHundred": "If 1 more patient in 100 leaves with a next appointment",
+      "onePerHundredHelp": "Calculated with this month's appointments and the value of a recall visit."
     },
     "overdue": {
       "title": "Who is overdue, and what is it worth?",
@@ -962,7 +965,7 @@
     "eventLine": "- In the same period: {{event}}",
     "acceptanceLine": "- Plan acceptance: {{current}}, after {{previous}}",
     "revenue_check": "Worth checking: were treatments postponed, or were fewer plans accepted?",
-    "open_plans": "In total, **{{open}}** of planned treatment is not booked yet.\n- Open for less than 3 months: {{under3}}\n- Open for more than 3 months: {{over3}}\n- Acceptance in {{month}}: {{acceptance}} (month before: {{previous}})\n- One more point of acceptance equals {{onePoint}}\nWorth checking: the follow-up list on the “Treatment plans” page.",
+    "open_plans": "In total, **{{open}}** of planned treatment is not booked yet.\n- Open for less than 3 months: {{under3}}\n- Open for more than 3 months: {{over3}}\n- Accepted in {{month}}: {{acceptance}} (month before: {{previous}})\n- If {{next}} were accepted instead of {{acceptance}}, that would be {{onePercent}} more\nWorth checking: the follow-up list on the “Treatment plans” page.",
     "request_speed": "In {{month}}, **{{fast}}** of online requests were answered within 2 hours (month before: {{previous}}).\n- Online requests: {{requests}}\n- Waited more than 2 hours: {{waiting}} requests\n- {{fastConv}} of quickly answered requests became patients, against {{slowConv}} of those answered later\n- Estimated loss: {{missed}} new patients, about {{missedValue}} over 6 months\n- {{weekend}} of late replies were to requests from Friday afternoon or the weekend\nThis is a link, not proof.",
     "waiting": "In {{month}}, **{{waiting}}** of {{requests}} online requests waited more than 2 hours for a reply.\n- Answered within 2 hours: {{fast}}\n- {{weekend}} of late replies were to requests from Friday afternoon or the weekend",
     "overdue": "**{{count}} patients** are overdue for a check-up. If all of them came, that would be about {{value}}.\n- Value of one recall visit: {{recall}}\n- Typical patient value per year: {{perYear}}\n- Next appointment booked (team): {{nextBooked}}",
@@ -973,7 +976,7 @@
     "channelLine": "- {{channel}}: {{patients}} new patients from {{requests}} requests",
     "instagram": "In {{month}}, Instagram brought **{{patients}} new patients** from {{requests}} requests.\n- Posts: {{posts}}, reach: {{reach}}\n- Link clicks: {{clicks}}, messages: {{messages}}\n- “{{best}}” brings the most patients: {{bestPatients}} new patients from {{bestRequests}} requests in 6 months\n- “{{reachType}}” has the widest reach, at {{reachAvg}} per post\nThis is a link, not proof.",
     "google_ads": "In {{month}}, Google Ads cost **{{spend}}** and the Google channel brought {{patients}} new patients.\n- Cost per new patient: {{cost}}\n- Estimated return per €1 within 6 months: {{ret}}\nThe Google channel also includes patients from ordinary search. The return is an estimate from history.",
-    "focus": "In {{month}}, most of the money sits in these items, cautiously estimated:\n{{items}}\nTogether about {{total}} a month.",
+    "focus": "In {{month}}, most of the money sits in these areas, cautiously estimated:\n{{items}}\nTogether about {{total}} a month.",
     "focusLine": "- {{title}}: about {{value}} a month",
     "profit": "I cannot calculate profit yet. The costs are missing: materials, implant parts and lab costs.\n- What is available is revenue: {{revenue}} in {{month}}\n- To show profit, the costs per treatment would need to be connected, for example from accounting",
     "cancel_reasons": "Why patients cancel is mostly not in the data. No reason is recorded for {{notRecorded}} of {{total}} missed appointments.\n{{reasons}}\nWorth checking: note the reason briefly when a patient cancels (illness, forgot, cost, other).",

@@ -369,7 +369,7 @@ export function PlansData() {
                     <Td right strong>{f.pct(r.acceptancePct)}</Td>
                     <Td right>
                       {r.acceptancePct !== null && r.previousAcceptancePct !== null ? (
-                        <Delta value={Math.round(r.acceptancePct - r.previousAcceptancePct)} text={f.points(r.acceptancePct - r.previousAcceptancePct)} />
+                        <Delta value={Math.round(r.acceptancePct - r.previousAcceptancePct)} text={f.pctFromTo(r.previousAcceptancePct, r.acceptancePct)} />
                       ) : (
                         f.dash
                       )}

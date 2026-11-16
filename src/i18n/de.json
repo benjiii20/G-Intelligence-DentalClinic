@@ -206,7 +206,10 @@
     "rowsShown": "{{shown}} von {{total}} angezeigt",
     "events": "Ereignisse im Zeitraum",
     "days_one": "{{n}} Tag",
-    "days_other": "{{n}} Tage"
+    "days_other": "{{n}} Tage",
+    "downFrom": "gesunken von {{value}} im {{month}}",
+    "upFrom": "gestiegen von {{value}} im {{month}}",
+    "sameAs": "wie im {{month}}"
   },
   "m": {
     "revenue": {
@@ -574,7 +577,7 @@
   },
   "top": {
     "title": "Was hat die Zahlen am stärksten bewegt?",
-    "note": "Die Punkte überschneiden sich. Sie lassen sich nicht addieren.",
+    "note": "Diese Veränderungen überschneiden sich. Sie lassen sich nicht addieren.",
     "kind": {
       "treatment": "Behandlung",
       "staff": "Team",
@@ -649,16 +652,12 @@
       "over3": "Offen, älter als 3 Monate",
       "closed": "Abgelehnt oder abgelaufen"
     },
-    "onePoint": {
-      "label": "Was 1 Prozentpunkt mehr wert ist:",
-      "text": "Würden Patienten 1 Prozentpunkt mehr der Pläne dieses Monats annehmen, wären das {{value}} mehr gebuchte Behandlung."
-    },
     "inst": {
       "title": "Hilft das Angebot der Ratenzahlung?",
       "with": "Angenommen mit Angebot",
       "without": "Angenommen ohne Angebot",
       "sample": "{{n}} Pläne",
-      "text": "Mit Angebot wurden Pläne um {{diff}} häufiger angenommen. Angeboten wurde es aber nur bei {{share}} der Pläne.",
+      "text": "Mit Angebot wurden {{with}} der Pläne angenommen, ohne Angebot {{without}}. Angeboten wurde es aber nur bei {{share}} der Pläne.",
       "textNoDiff": "Mit und ohne Angebot wurden Pläne etwa gleich oft angenommen.",
       "period": "Zeitraum: 6 Monate bis {{month}}. Es zählen nur Pläne, bei denen das Angebot erfasst ist.",
       "check": "Ob es an der Ratenzahlung liegt, zeigen die Daten nicht. Einen Versuch ist es wert: bei jedem größeren Plan anbieten."
@@ -695,7 +694,11 @@
     },
     "whatIs": "Ein Behandlungsplan (HKP) ist der Kostenvoranschlag, den der Patient vor der Behandlung annimmt oder ablehnt.",
     "answerOpen": "Pläne über {{open}} warten noch auf ein Ja oder Nein, aus allen Monaten zusammen.",
-    "answerFresh": "{{under3}} davon sind jünger als 3 Monate. Hier lohnt sich ein Anruf am meisten."
+    "answerFresh": "{{under3}} davon sind jünger als 3 Monate. Hier lohnt sich ein Anruf am meisten.",
+    "onePercent": {
+      "label": "Was eine kleine Verbesserung wert ist:",
+      "text": "Würden {{next}} statt {{current}} der Pläne dieses Monats angenommen, wären das {{value}} mehr gebuchte Behandlung."
+    }
   },
   "mkt": {
     "answer": {
@@ -761,11 +764,11 @@
     "answerSub": "Im {{month}} waren {{seen}} Patienten in der Praxis, davon {{fresh}} neu.",
     "value": {
       "recall": "Ein Recall-Termin",
-      "onePoint": "+1 Punkt „nächster Termin gebucht“",
-      "onePointHelp": "Ein Punkt mehr bedeutet: von 100 Patienten geht einer mehr mit Termin nach Hause. Gerechnet mit den Terminen dieses Monats und dem Wert eines Recall-Termins.",
       "lost": "Wenn ein Neupatient nicht wiederkommt",
       "lostHelp": "Üblicher Umsatz eines Neupatienten in 6 Monaten minus der Umsatz des ersten Termins.",
-      "perMonth": "pro Monat"
+      "perMonth": "pro Monat",
+      "onePerHundred": "Wenn von 100 Patienten einer mehr mit Termin geht",
+      "onePerHundredHelp": "Gerechnet mit den Terminen dieses Monats und dem Wert eines Recall-Termins."
     },
     "overdue": {
       "title": "Wer ist überfällig – und was ist das wert?",
@@ -962,7 +965,7 @@
     "eventLine": "- Im gleichen Zeitraum: {{event}}",
     "acceptanceLine": "- Annahmequote der Behandlungspläne: {{current}} nach {{previous}}",
     "revenue_check": "Prüfenswert: Wurden Behandlungen verschoben, oder wurden weniger Pläne angenommen?",
-    "open_plans": "Insgesamt sind **{{open}}** geplante Behandlung noch nicht gebucht.\n- Offen seit weniger als 3 Monaten: {{under3}}\n- Offen seit mehr als 3 Monaten: {{over3}}\n- Annahmequote im {{month}}: {{acceptance}} (Vormonat: {{previous}})\n- Ein Punkt mehr Annahme entspricht {{onePoint}}\nPrüfenswert: die Nachfass-Liste auf der Seite „Behandlungspläne“.",
+    "open_plans": "Insgesamt sind **{{open}}** geplante Behandlung noch nicht gebucht.\n- Offen seit weniger als 3 Monaten: {{under3}}\n- Offen seit mehr als 3 Monaten: {{over3}}\n- Angenommen im {{month}}: {{acceptance}} (Vormonat: {{previous}})\n- Würden {{next}} statt {{acceptance}} angenommen, wären das {{onePercent}} mehr\nPrüfenswert: die Nachfass-Liste auf der Seite „Behandlungspläne“.",
     "request_speed": "Im {{month}} wurden **{{fast}}** der Online-Anfragen in 2 Stunden beantwortet (Vormonat: {{previous}}).\n- Online-Anfragen: {{requests}}\n- Länger als 2 Stunden gewartet: {{waiting}} Anfragen\n- Von den schnell beantworteten Anfragen wurden {{fastConv}} zu Patienten, von den später beantworteten {{slowConv}}\n- Geschätzt entgangen: {{missed}} Neupatienten, etwa {{missedValue}} in 6 Monaten\n- {{weekend}} der späten Antworten betrafen Anfragen vom Freitagnachmittag oder Wochenende\nDas ist ein Zusammenhang, kein Beweis.",
     "waiting": "Im {{month}} warteten **{{waiting}}** von {{requests}} Online-Anfragen länger als 2 Stunden auf eine Antwort.\n- In 2 Stunden beantwortet: {{fast}}\n- {{weekend}} der späten Antworten betrafen Anfragen vom Freitagnachmittag oder Wochenende",
     "overdue": "**{{count}} Patienten** sind für die Kontrolle überfällig. Kämen alle, wären das etwa {{value}}.\n- Wert eines Recall-Termins: {{recall}}\n- Üblicher Patientenwert pro Jahr: {{perYear}}\n- Nächster Termin gebucht (Team): {{nextBooked}}",
@@ -973,7 +976,7 @@
     "channelLine": "- {{channel}}: {{patients}} Neupatienten aus {{requests}} Anfragen",
     "instagram": "Im {{month}} brachte Instagram **{{patients}} Neupatienten** aus {{requests}} Anfragen.\n- Beiträge: {{posts}}, Reichweite: {{reach}}\n- Link-Klicks: {{clicks}}, Nachrichten: {{messages}}\n- Die meisten Patienten bringt „{{best}}“: {{bestPatients}} Neupatienten aus {{bestRequests}} Anfragen in 6 Monaten\n- Die größte Reichweite hat „{{reachType}}“ mit {{reachAvg}} pro Beitrag\nDas ist ein Zusammenhang, kein Beweis.",
     "google_ads": "Im {{month}} kostete Google Ads **{{spend}}** und der Kanal Google brachte {{patients}} Neupatienten.\n- Kosten pro Neupatient: {{cost}}\n- Geschätzter Rückfluss pro 1 € in 6 Monaten: {{ret}}\nZum Kanal Google zählen auch Patienten aus der normalen Suche. Der Rückfluss ist eine Schätzung aus der Historie.",
-    "focus": "Im {{month}} liegt das meiste Geld bei diesen Punkten, vorsichtig geschätzt:\n{{items}}\nZusammen etwa {{total}} pro Monat.",
+    "focus": "Im {{month}} bleibt das meiste Geld an diesen Stellen liegen, vorsichtig geschätzt:\n{{items}}\nZusammen etwa {{total}} pro Monat.",
     "focusLine": "- {{title}}: etwa {{value}} pro Monat",
     "profit": "Den Gewinn kann ich noch nicht berechnen. Dafür fehlen die Kosten: Material, Implantatteile und Laborkosten.\n- Vorhanden ist der Umsatz: {{revenue}} im {{month}}\n- Um Gewinn zu zeigen, müssten die Kosten je Behandlung angebunden werden, zum Beispiel aus der Buchhaltung",
     "cancel_reasons": "Warum Patienten absagen, steht größtenteils nicht in den Daten. Bei {{notRecorded}} von {{total}} Ausfällen ist kein Grund erfasst.\n{{reasons}}\nPrüfenswert: beim Absagen kurz den Grund notieren (krank, vergessen, Kosten, Sonstiges).",

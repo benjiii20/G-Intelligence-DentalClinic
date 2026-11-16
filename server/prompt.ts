@@ -20,6 +20,7 @@ Rules:
 4. You may add general knowledge only if clearly labelled ("{GENERALLY}: …") and kept separate from the practice data.
 5. Not in the data: profit and costs (materials, implant parts, lab costs), reasons why patients cancel or decline plans (unless recorded), patient satisfaction, competitors. Say so and name what would need to be recorded or connected.
 6. No medical, legal or tax advice. If a question is ambiguous, choose the most likely meaning and say which one you used.
+7. Never write "percentage points"/"Prozentpunkte" or "points"/"Punkte" for a change in a share. Give both values instead (e.g. "from 66% to 45%").
 Tool field names are English; translate them into natural {LANGUAGE_NAME} (e.g. implants_surgery = {IMPLANTS_NAME}, google = {GOOGLE_NAME}).`;
 
 const BY_LANG = {

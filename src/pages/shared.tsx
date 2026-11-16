@@ -50,8 +50,12 @@ export function Change({ cur, prev, kind, goodWhen = 'up', label }: { cur: numbe
   if (cur == null || prev == null) return null;
   const diff = cur - prev;
   let text: string;
-  if (kind === 'pct') text = f.points(diff);
-  else if (kind === 'eur' || kind === 'eur2') {
+  if (kind === 'pct') {
+    const r = Math.round(diff);
+    const key = r < 0 ? 'common.downFrom' : r > 0 ? 'common.upFrom' : 'common.sameAs';
+    return <Delta value={r} text={t(key, { value: f.pct(prev), month: f.monthName(prevMonth) })} goodWhen={goodWhen} />;
+  }
+  if (kind === 'eur' || kind === 'eur2') {
     text = f.eurSigned(diff);
     if (prev !== 0 && kind === 'eur') text += ` (${f.pctSigned((diff / prev) * 100)})`;
   } else {
@@ -60,7 +64,7 @@ export function Change({ cur, prev, kind, goodWhen = 'up', label }: { cur: numbe
   }
   return (
     <span className="inline-flex flex-wrap items-baseline gap-x-1.5">
-      <Delta value={kind === 'pct' ? Math.round(diff) : diff} text={text} goodWhen={goodWhen} />
+      <Delta value={diff} text={text} goodWhen={goodWhen} />
       {label !== false && <span className="text-muted">{t('common.vsPrev', { month: f.monthName(prevMonth) })}</span>}
     </span>
   );

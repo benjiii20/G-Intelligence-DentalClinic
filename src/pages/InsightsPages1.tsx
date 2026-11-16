@@ -453,8 +453,13 @@ export function PlansInsights() {
         {summary.value && (
           <div className="mt-4 border-t border-line pt-3">
             <p className="text-sm text-ink">
-              <span className="font-semibold">{t('plans.onePoint.label')} </span>
-              {t('plans.onePoint.text', { value: f.eur(summary.value.onePoint) })}
+              <span className="font-semibold">{t('plans.onePercent.label')} </span>
+              {summary.value.acceptancePct !== null &&
+                t('plans.onePercent.text', {
+                  next: f.pct(Math.round(summary.value.acceptancePct) + 1),
+                  current: f.pct(Math.round(summary.value.acceptancePct)),
+                  value: f.eur(summary.value.onePercent),
+                })}
             </p>
           </div>
         )}
@@ -472,7 +477,7 @@ export function PlansInsights() {
                 </TileGrid>
                 {diff !== null && (
                   <p className="mt-3 text-sm leading-relaxed text-ink">
-                    {Math.abs(diff) < 3 ? t('plans.inst.textNoDiff') : t('plans.inst.text', { diff: f.points(diff).replace(/^[+]/, ''), share: f.pct(c.offeredSharePct) })} {t('common.linkNotProof')}
+                    {Math.abs(diff) < 3 ? t('plans.inst.textNoDiff') : t('plans.inst.text', { with: f.pct(c.withOfferPct), without: f.pct(c.withoutOfferPct), share: f.pct(c.offeredSharePct) })} {t('common.linkNotProof')}
                   </p>
                 )}
                 <Note tone="check">{t('plans.inst.check')}</Note>
@@ -504,7 +509,7 @@ export function PlansInsights() {
                       </p>
                       {days > 0 && <p className="text-sm leading-relaxed text-ink">{t('plans.dentist.absence', { days: f.num(days) })}</p>}
                     </div>
-                    {diff !== null && <Delta value={Math.round(diff)} text={f.points(diff)} className="text-sm" />}
+                    {diff !== null && <Delta value={Math.round(diff)} text={f.pctFromTo(r.previousAcceptancePct, r.acceptancePct)} className="text-sm" />}
                   </li>
                 );
               })}

@@ -128,7 +128,7 @@ export function MarketingInsights() {
           {(s) => (
             <>
               <TileGrid cols={4}>
-                <Tile label={t('m.fast2h.label')} help={t('m.fast2h.help')} value={f.pct(s.fastPct)} delta={speedPrev ? <Delta value={Math.round(s.fastPct - speedPrev.fastPct)} text={f.points(s.fastPct - speedPrev.fastPct)} /> : undefined} />
+                <Tile label={t('m.fast2h.label')} help={t('m.fast2h.help')} value={f.pct(s.fastPct)} delta={speedPrev ? <Delta value={Math.round(s.fastPct - speedPrev.fastPct)} text={t(Math.round(s.fastPct - speedPrev.fastPct) < 0 ? 'common.downFrom' : 'common.upFrom', { value: f.pct(speedPrev.fastPct), month: f.monthName(prevMonth) })} /> : undefined} />
                 <Tile label={t('m.fastConv.label')} help={t('m.fastConv.help')} value={f.pct(s.fastConversionPct)} tone="gain" />
                 <Tile label={t('m.slowConv.label')} help={t('m.slowConv.help')} value={f.pct(s.slowConversionPct)} tone="loss" />
                 <Tile
@@ -406,7 +406,7 @@ export function PatientsInsights() {
       <TileGrid cols={4}>
         <Tile label={t('m.patientValueYear.label')} help={t('m.patientValueYear.help')} value={perYear.value === null ? t('common.notEnough') : f.eur(perYear.value)} />
         <Tile label={t('pat.value.recall')} help={t('m.recallValue.help')} value={recall.value === null ? t('common.notEnough') : f.eur(recall.value)} />
-        <Tile label={t('pat.value.onePoint')} help={t('pat.value.onePointHelp')} value={appts !== null && recall.value !== null ? f.eur((appts / 100) * recall.value) : f.dash} sub={t('pat.value.perMonth')} tone="opp" />
+        <Tile label={t('pat.value.onePerHundred')} help={t('pat.value.onePerHundredHelp')} value={appts !== null && recall.value !== null ? f.eur((appts / 100) * recall.value) : f.dash} sub={t('pat.value.perMonth')} tone="opp" />
         <Tile label={t('pat.value.lost')} help={t('pat.value.lostHelp')} value={npv !== null && first !== null ? f.eur(Math.max(0, npv - first)) : f.dash} tone="loss" />
       </TileGrid>
 

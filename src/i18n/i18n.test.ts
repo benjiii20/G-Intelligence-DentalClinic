@@ -100,6 +100,11 @@ describe('translations', () => {
     expect(hits).toEqual([]);
   });
 
+  it('never talks about "points" (give both percentages instead)', () => {
+    const hits = [...Object.entries(DE).filter(([, v]) => /\b(Prozent)?[Pp]unkte?\b/.test(v)), ...Object.entries(EN).filter(([, v]) => /\b(percentage )?points?\b/i.test(v))];
+    expect(hits).toEqual([]);
+  });
+
   it('no "weil"/"because" in fixed explanations', () => {
     const hits = [...Object.entries(DE).filter(([, v]) => /\bweil\b/i.test(v)), ...Object.entries(EN).filter(([, v]) => /\bbecause\b/i.test(v))];
     expect(hits).toEqual([]);
